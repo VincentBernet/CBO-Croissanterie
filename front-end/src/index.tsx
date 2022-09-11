@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import MainCardContainer from './components/MainCardContainer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const MockTeamMembers : string[] = 
+ ["Vincent", "Kevin", "Jean", "Jean-Christophe", "Hakima", "Aya", "Virgil", "Stéphane", "Wendy", "Oum", "Jeremy", "Claudia"]
+;
+
 root.render(
   <React.StrictMode>
-    <App />
+    <MainCardContainer TeamMembers={MockTeamMembers}/>
   </React.StrictMode>
 );
 
