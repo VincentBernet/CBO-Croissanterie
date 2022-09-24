@@ -6,5 +6,5 @@ Little fun project, for our agile team, to decide which person needs to prepare 
 - [ ] Back-end : Get, to access DB information, Post to modify the current player list and the timer
 - [ ] Front-end : connect to those API
 
-Let's go do it !
+Let's do it !
 
