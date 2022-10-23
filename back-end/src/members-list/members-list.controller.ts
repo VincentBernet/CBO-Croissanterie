@@ -1,25 +1,18 @@
 // Se limiter seulement à la définition d'endpoint au niveau des controllers, et mettre la logique au niveau des services.
 
 import { Controller, Get } from '@nestjs/common';
-const cron = require('node-cron');
+import { getCurrentMemberListMethod, getInitialMemberListMethod } from "./members-list-utils";
 
-const getCurrentMemberListMethod = () => {
-    let MockTeamMembers: string[] =
-    ["Vincent", "Kevin", "Jean", "Jean-Christophe", "Hakima", "Aya", "Virgil", "Stéphane", "Wendy", "Oum", "Jeremy", "Claudia"]
-    ;
-    let timer: number = 0;
-    cron.schedule('* * * * *', function () {
-    MockTeamMembers.pop();
-    timer += 1;
-    return(MockTeamMembers + " after " + timer + " eliminations");
-    });
-}
-
-@Controller('members-list')
+@Controller('members')
 export class MembersListController {
-    @Get('')
-    getCurrentMemberList() {
+    @Get('current-list')
+    getCurrentMemberList(): [currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean] {
       return getCurrentMemberListMethod();
+    }
+
+    @Get('initial-list')
+    getInitialMemberList(): string[] {
+      return getInitialMemberListMethod();
     }
 }
 
