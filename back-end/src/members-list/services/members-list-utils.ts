@@ -1,5 +1,5 @@
 import { calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimeBeforeNextDeletionType } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockHeureDebut, MockHeureFin, MockCurrentDate, } from "./members-list-mock";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockHeureDebut, MockHeureFin, MockCurrentDate,} from "./members-list-mock";
 
   export const getCurrentMemberListMethod = (): [currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean] => {
       const currentDateInMinute: number = (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60);
