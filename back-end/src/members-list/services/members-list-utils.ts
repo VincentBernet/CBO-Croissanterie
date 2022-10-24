@@ -1,35 +1,8 @@
-interface calculateNombreDeletionToDoType {
-    initialList: string[],
-    currentList: string[],
-    heureDebut: number,
-    heureFin: number,
-    heureActuelle: number,
-  }
-  
-interface calculateTimeBeforeNextDeletionType {
-    initialList: string[],
-    heureDebut: number,
-    heureFin: number,
-    heureActuelle: number,
-}
-  
-interface calculateNombreDeletionTheoricType {
-    initialList: string[],
-    timeDeletion: number,
-    heureDebut: number,
-    heureActuelle: number,
-}
-  
-  const MockInitialTeamMembers: string[] =
-  ["Vincent", "Kevin", "Jean", "Jean-Christophe", "Hakima", "Aya", "Virgil", "Stéphane", "Wendy", "Oum", "Jeremy", "Claudia", "Cherif"];
-  const MockCurrentTeamMembers: string[] =
-  ["Vincent", "Kevin", "Jean", "Jean-Christophe", "Hakima", "Aya", "Virgil", "Stéphane", "Wendy", "Oum", "Jeremy", "Claudia", "Cherif"];
-  const MockHeureDebut: number = 600;
-  const MockHeureFin: number = 1020;
-   
+import { calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimeBeforeNextDeletionType } from "./members-list-type";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockHeureDebut, MockHeureFin, MockCurrentDate, } from "./members-list-mock";
+
   export const getCurrentMemberListMethod = (): [currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean] => {
-      const currentDate = new Date;
-      const currentDateInMinute: number = (currentDate.getHours() * 60) + currentDate.getMinutes() + (currentDate.getSeconds() / 60);
+      const currentDateInMinute: number = (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60);
   
       const currentListMember = updateCurrentList({initialList: MockInitialTeamMembers, currentList: MockCurrentTeamMembers, 
         heureDebut: MockHeureDebut, heureFin: MockHeureFin, heureActuelle: currentDateInMinute});
@@ -80,9 +53,7 @@ interface calculateNombreDeletionTheoricType {
   
   const calculateTimeBeforeNextDeletion = ({initialList, heureDebut, heureFin, heureActuelle}: calculateTimeBeforeNextDeletionType): number | boolean => {
     const timeDeletion = ((heureFin - heureDebut) / (initialList.length -1));
-    if (heureActuelle > heureFin)
-    {
-        return false;
-    }
+    if (heureActuelle > heureFin) return false;
+    if (heureActuelle < heureDebut) return true;
     return (timeDeletion - (heureActuelle - heureDebut) % timeDeletion);
   }
