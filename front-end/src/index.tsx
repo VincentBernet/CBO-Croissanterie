@@ -1,21 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import MainCardContainer from './components/MainCardContainer';
+import GlobalContainer from './components/GlobalContainer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
 
-const MockTeamMembers: string[] =
-  ["Vincent", "Kevin", "Jean", "Jean-Christophe", "Hakima", "Aya", "Virgil", "Stéphane", "Wendy", "Oum", "Jeremy", "Claudia"]
-  ;
-
+const MockTeamMembers: string[] = ['Vincent', 'Kevin', 'Jean', 'Jean-Christophe', 'Hakima', 'Aya', 'Virgil', 'Stéphane', 'Wendy', 'Oum', 'Jeremy', 'Claudia'];
 root.render(
   <React.StrictMode>
-    <MainCardContainer TeamMembers={MockTeamMembers} />
-  </React.StrictMode>
+    <GlobalContainer TeamMembers={MockTeamMembers} />
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
