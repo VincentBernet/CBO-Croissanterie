@@ -1,32 +1,10 @@
 
-// Future interface for the productJson returned by the API
-export interface memberType {
-    member_name: string;
-    member_age: number;
-}
+import { dtoMembersListAPI } from "./interface";
 
-// Future interface for the productJson returned by the API
-export interface memberListType {
-    members: memberType[];
-}
-
-export interface timeBeforeNextDeletionType {
-    timeBeforeNextDeletion: string;
-}
-
-
-
-
-export const retrieveProductInformation = async (
-    codeBar: number,
-): Promise<listMemberType> => {
-    let json: listMemberType = { product_id: codeBar, firstCatego: '' };
+export const retrieveApiCall = async (): Promise<dtoMembersListAPI> => {
+    let json: dtoMembersListAPI = { currentTimeBeforeNextDeletion: "", currentListMember: { members: [] } };
     try {
-        const endpointUrl = `https://ucare-backend.herokuapp.com/products/${codeBar}.json`;
-        /*
-            console.log(
-                'Console Log before calling Ucare Product API at : ' + endpointUrl
-            ); */
+        const endpointUrl = `https://croissanterie-backend.herokuapp.com/members/current-list`;
         await fetch(endpointUrl).then((response) => response
             .json()
             .then((data) => ({

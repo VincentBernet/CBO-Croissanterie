@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
+import { retrieveApiCall } from '../utils/callApi.utils';
+import { memberListType } from '../utils/interface';
 import './GlobalContainer.css';
 import MemberCard from './MemberCard';
 import TimerCard from './TimerCard';
 
-const MockTeamMembers: string[] = ['Vincent', 'Kevin', 'Jean', 'Jean-Christophe', 'Hakima', 'Aya', 'Virgil', 'Stéphane', 'Wendy', 'Oum', 'Jeremy', 'Claudia'];
+
+const MockTeamMembers: memberListType = [{ name: 'Vincent', age: 23 }, { name: 'Kevin' }, { name: 'Jean' }, { name: 'Jean-Christophe' }, { name: 'Hakima' }, { name: 'Aya' }, { name: 'Virgil' }, { name: 'Stéphane' }, { name: 'Wendy' }, { name: 'Oum' }, { name: 'Jeremy' }, { name: 'Claudia' }];
 const MockTimerTillNextDeletion: string = '00:00:00';
 
-export async function getAllUsers() {
-  try {
-    const response = await fetch('https://croissanterie-backend.herokuapp.com/members/current-list');
-    return await response.json();
-  } catch (error) {
-    return ["hahah"];
-  }
 
-}
-
-const GlobalContainer = async () => {
+const GlobalContainer = () => {
+  const currentProductJson = retrieveApiCall();
   const [dataInformation, setdataInformation] = useState({ teamMembers: MockTeamMembers, timerTillNextDeletion: MockTimerTillNextDeletion });
   const [dataError, setdataError] = useState("Erreur 404");
-  const [dataIsLoading, setdataIsLoading] = useState(false);
-  setdataInformation(await getAllUsers());
+  const [dataIsLoading, setdataIsLoading] = useState(true);
+
+  currentProductJson.then((data) => { return setdataInformation({ teamsMembers: data.currentListMember, timerTillNextDeletion: data.currentTimeBeforeNextDeletion }); });
+
+
 
   if (dataIsLoading) {
     return (
@@ -36,6 +34,7 @@ const GlobalContainer = async () => {
   if (dataInformation) {
     return (
       <div className="MainCardContainer">
+        hahaha
         <TimerCard timer={dataInformation.timerTillNextDeletion} />
         <div className="MemberCardContainer">
           {dataInformation.teamMembers.map((name) => (<MemberCard memberInfo={name} key={`MemberCard of ${name}`} />))}
