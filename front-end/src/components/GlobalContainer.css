@@ -1,5 +1,5 @@
 body {
-    background-color: 	#424549;
+    background-color: #424549;
 }
 
 .MainCardContainer {
@@ -12,14 +12,6 @@ body {
     border-radius: 15px;
 }
 
-.MemberCardContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px 0px;
-    margin-bottom: 24px;
-}
 
 .TimerCard {
     margin-top: 16px;
@@ -30,6 +22,7 @@ body {
     background: #FFFFFF;
     border-radius: 45px;
     text-align: center;
+    animation: fadeIn 3s;
 }
 
 .TimerText {
@@ -42,12 +35,30 @@ body {
     color: #7289da;
 }
 
+.MemberCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px 0px;
+    margin-bottom: 24px;
+}
+
 .MemberCard {
     width: 70%;
     background: #FFFFFF;
     border-radius: 5px;
     text-align: left;
-    padding: 16px;
-    font-weight: 400;
+    padding: 8px;
+    animation: fadeIn 3s;
 }
 
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -6,19 +6,19 @@ import { getInfo } from "./services/developers-utils";
 
 @Controller('members')
 export class MembersListController {
-    @Get('current-list')
-    getCurrentMemberList(): [currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean] {
-      return getCurrentMemberListMethod();
-    }
+  @Get('current-list')
+  getCurrentMemberList(): { currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean } {
+    return getCurrentMemberListMethod();
+  }
 
-    @Get('initial-list')
-    getInitialMemberList(): string[] {
-      return getInitialMemberListMethod();
-    }
+  @Get('initial-list')
+  getInitialMemberList(): string[] {
+    return getInitialMemberListMethod();
+  }
 
-    @Get('info')
-    getInfo(): string {
-      return getInfo();
-    }
+  @Get('info')
+  getInfo(): string {
+    return getInfo();
+  }
 }
 

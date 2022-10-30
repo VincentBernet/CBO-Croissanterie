@@ -8,10 +8,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const MockTeamMembers: string[] = ['Vincent', 'Kevin', 'Jean', 'Jean-Christophe', 'Hakima', 'Aya', 'Virgil', 'Stéphane', 'Wendy', 'Oum', 'Jeremy', 'Claudia'];
 root.render(
   <React.StrictMode>
-    <GlobalContainer TeamMembers={MockTeamMembers} />
+    <GlobalContainer />
   </React.StrictMode>,
 );
 

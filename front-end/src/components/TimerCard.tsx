@@ -1,8 +1,10 @@
+import React from 'react';
+
 interface TimerCardProp {
-    timer: string;
+  timer: string;
 }
 
-function TimerCard({ timer } : TimerCardProp) {
+const TimerCard = ({ timer }: TimerCardProp) => {
   return (
     <div className="TimerCard">
       {' '}

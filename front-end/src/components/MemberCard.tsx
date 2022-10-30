@@ -1,8 +1,10 @@
+import React from 'react';
+
 interface MemberCardProp {
-    memberInfo: string,
+  memberInfo: string,
 }
 
-function MemberCard({ memberInfo }: MemberCardProp) {
+const MemberCard = ({ memberInfo }: MemberCardProp) => {
   return (
     <div key={`${memberInfo} container`} className="MemberCard">
       <span key={`${memberInfo} name`}>{memberInfo}</span>

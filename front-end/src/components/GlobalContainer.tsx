@@ -1,42 +1,51 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './GlobalContainer.css';
-import axios from 'axios';
 import MemberCard from './MemberCard';
 import TimerCard from './TimerCard';
 
-interface GlobalContainerProps {
-    TeamMembers: string[],
+const MockTeamMembers: string[] = ['Vincent', 'Kevin', 'Jean', 'Jean-Christophe', 'Hakima', 'Aya', 'Virgil', 'Stéphane', 'Wendy', 'Oum', 'Jeremy', 'Claudia'];
+const MockTimerTillNextDeletion: string = '00:00:00';
+
+export async function getAllUsers() {
+  try {
+    const response = await fetch('https://croissanterie-backend.herokuapp.com/members/current-list');
+    return await response.json();
+  } catch (error) {
+    return ["hahah"];
+  }
+
 }
 
-function GlobalContainer({ TeamMembers } : GlobalContainerProps) {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    handlePosts();
-  }, []);
-  const handlePosts = async () => {
-    setLoading(true);
-    try {
-      const result = await axios.get(
-        'https://croissanterie-backend.herokuapp.com/members/current-list',
-      );
-      setPosts(result.data);
-      console.log(result.data);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-  return (
-    <div className="MainCardContainer">
-      <TimerCard timer="2 H 35 Min 45 Secondes" />
-      <div className="MemberCardContainer">
-        {loading ? <div> Loading Time </div> : null}
-        {posts ? TeamMembers.map((name) => (<MemberCard memberInfo={name} key={`MemberCard of ${name}`} />)) : 'error'}
+const GlobalContainer = async () => {
+  const [dataInformation, setdataInformation] = useState({ teamMembers: MockTeamMembers, timerTillNextDeletion: MockTimerTillNextDeletion });
+  const [dataError, setdataError] = useState("Erreur 404");
+  const [dataIsLoading, setdataIsLoading] = useState(false);
+  setdataInformation(await getAllUsers());
+
+  if (dataIsLoading) {
+    return (
+      <div className="MainCardContainer">
+        <TimerCard timer={""} />
+        <div className="MemberCardContainer">
+          {[...Array(8)].map((e, i) => (<MemberCard memberInfo="" key={`Squeleton number ${i}`} />))}
+        </div>
       </div>
-    </div>
+    );
+  }
+
+  if (dataInformation) {
+    return (
+      <div className="MainCardContainer">
+        <TimerCard timer={dataInformation.timerTillNextDeletion} />
+        <div className="MemberCardContainer">
+          {dataInformation.teamMembers.map((name) => (<MemberCard memberInfo={name} key={`MemberCard of ${name}`} />))}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div>L&apos;erreur est la suivante : {dataError}</div>
   );
 }
 
