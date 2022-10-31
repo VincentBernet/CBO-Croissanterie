@@ -15,9 +15,8 @@ const GlobalContainer = () => {
   if (dataIsLoading === true) {
     currentCroissanterInfoJSON.then((data) => {
       setDataIsLoading(false);
-      console.log(data.currentListMember);
       setDataInformation({ memberList: data.currentListMember, timerTillNextDeletion: data.currentTimeBeforeNextDeletion });
-      console.log(dataInformation.memberList);
+      console.log("Appel api : " + data.currentTimeBeforeNextDeletion);
     });
   }
 
@@ -36,8 +35,6 @@ const GlobalContainer = () => {
   if (dataInformation) {
     return (
       <div className="MainCardContainer">
-        haa
-        {dataInformation.memberList[0].name}
         <TimerCard timer={dataInformation.timerTillNextDeletion} />
         <div className="MemberCardContainer">
           {dataInformation.memberList.map((memberInfo, index) => (<MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />))}
