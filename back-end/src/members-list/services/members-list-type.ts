@@ -1,23 +1,38 @@
+interface memberType {
+    name: string;
+    age?: number;
+}
+
+interface memberListType extends Array<memberType> {
+}
+
+interface dtoMembersListAPI {
+    currentTimeBeforeNextDeletion: string;
+    currentListMember: memberListType;
+}
+
 interface calculateNombreDeletionToDoType {
-    initialList: string[],
-    currentList: string[],
-    heureDebut: number,
-    heureFin: number,
-    heureActuelle: number,
-  }
-  
-interface calculateTimeBeforeNextDeletionType {
-    initialList: string[],
+    initialList: memberListType,
+    currentList: memberListType,
     heureDebut: number,
     heureFin: number,
     heureActuelle: number,
 }
-  
+
+interface calculateTimeBeforeNextDeletionType {
+    initialList: memberListType,
+    heureDebut: number,
+    heureFin: number,
+    heureActuelle: number,
+}
+
 interface calculateNombreDeletionTheoricType {
-    initialList: string[],
+    initialList: memberListType,
     timeDeletion: number,
     heureDebut: number,
     heureActuelle: number,
 }
 
-export { calculateNombreDeletionToDoType, calculateTimeBeforeNextDeletionType, calculateNombreDeletionTheoricType}
+
+
+export { memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimeBeforeNextDeletionType, calculateNombreDeletionTheoricType }

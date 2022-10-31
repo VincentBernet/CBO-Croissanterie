@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
 import { retrieveApiCall } from '../utils/callApi.utils';
-import { memberListType } from '../utils/interface';
+import { dtoMembersListAPI } from '../utils/interface';
+import { MockEmptyTeamMembers, MockTimerTillNextDeletion } from '../utils/mock';
 import './GlobalContainer.css';
 import MemberCard from './MemberCard';
 import TimerCard from './TimerCard';
 
-
-const MockTeamMembers: memberListType = [{ name: 'Vincent', age: 23 }, { name: 'Kevin' }, { name: 'Jean' }, { name: 'Jean-Christophe' }, { name: 'Hakima' }, { name: 'Aya' }, { name: 'Virgil' }, { name: 'Stéphane' }, { name: 'Wendy' }, { name: 'Oum' }, { name: 'Jeremy' }, { name: 'Claudia' }];
-const MockTimerTillNextDeletion: string = '00:00:00';
-
-
 const GlobalContainer = () => {
-  const currentProductJson = retrieveApiCall();
-  const [dataInformation, setdataInformation] = useState({ teamMembers: MockTeamMembers, timerTillNextDeletion: MockTimerTillNextDeletion });
-  const [dataError, setdataError] = useState("Erreur 404");
-  const [dataIsLoading, setdataIsLoading] = useState(true);
+  const currentCroissanterInfoJSON: Promise<dtoMembersListAPI> = retrieveApiCall();
+  const [dataInformation, setDataInformation] = useState({ memberList: MockEmptyTeamMembers, timerTillNextDeletion: MockTimerTillNextDeletion });
+  const [dataError, setDataError] = useState(false);
+  const [dataIsLoading, setDataIsLoading] = useState(true);
 
-  currentProductJson.then((data) => { return setdataInformation({ teamsMembers: data.currentListMember, timerTillNextDeletion: data.currentTimeBeforeNextDeletion }); });
-
+  if (dataIsLoading === true) {
+    currentCroissanterInfoJSON.then((data) => {
+      setDataIsLoading(false);
+      console.log(data.currentListMember);
+      setDataInformation({ memberList: data.currentListMember, timerTillNextDeletion: data.currentTimeBeforeNextDeletion });
+      console.log(dataInformation.memberList);
+    });
+  }
 
 
   if (dataIsLoading) {
-    return (
-      <div className="MainCardContainer">
+    return (<></>
+      /*<div className="MainCardContainer">
         <TimerCard timer={""} />
         <div className="MemberCardContainer">
-          {[...Array(8)].map((e, i) => (<MemberCard memberInfo="" key={`Squeleton number ${i}`} />))}
+          {MockEmptyTeamMembers.map((memberInfo, index) => (<MemberCard memberInfo={memberInfo} key={`Squeleton number ${index}`} />))}
         </div>
-      </div>
+      </div>*/
     );
   }
 
   if (dataInformation) {
     return (
       <div className="MainCardContainer">
-        hahaha
+        haa
+        {dataInformation.memberList[0].name}
         <TimerCard timer={dataInformation.timerTillNextDeletion} />
         <div className="MemberCardContainer">
-          {dataInformation.teamMembers.map((name) => (<MemberCard memberInfo={name} key={`MemberCard of ${name}`} />))}
+          {dataInformation.memberList.map((memberInfo, index) => (<MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />))}
         </div>
       </div>
     );

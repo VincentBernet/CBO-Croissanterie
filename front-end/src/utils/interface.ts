@@ -1,15 +1,15 @@
-// Future interface for the productJson returned by the API
-export interface memberType {
-    member_name: string;
-    member_age?: number;
+interface memberType {
+    name: string;
+    age?: number;
 }
 
-// Future interface for the productJson returned by the API
-export interface memberListType {
-    members: memberType[];
+interface memberListType extends Array<memberType> {
 }
 
-export interface dtoMembersListAPI {
+interface dtoMembersListAPI {
     currentTimeBeforeNextDeletion: string;
     currentListMember: memberListType;
 }
+
+export type { memberType, memberListType, dtoMembersListAPI, }
+

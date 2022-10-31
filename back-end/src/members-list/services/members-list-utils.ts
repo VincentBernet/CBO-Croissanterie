@@ -1,15 +1,15 @@
-import { calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimeBeforeNextDeletionType } from "./members-list-type";
+import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimeBeforeNextDeletionType, memberType } from "./members-list-type";
 import { MockInitialTeamMembers, MockCurrentTeamMembers, MockHeureDebut, MockHeureFin, MockCurrentDate, } from "./members-list-mock";
 
-export const getCurrentMemberListMethod = (): { currentListMember: string[], currentTimeBeforeNextDeletion: number | boolean } => {
+export const getCurrentMemberListMethod = (): { currentListMember: memberListType, currentTimeBeforeNextDeletion: number | boolean } => {
   const currentDateInMinute: number = (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60);
 
-  const currentListMemberValue = updateCurrentList({
+  const currentListMemberValue: memberListType = updateCurrentList({
     initialList: MockInitialTeamMembers, currentList: MockCurrentTeamMembers,
     heureDebut: MockHeureDebut, heureFin: MockHeureFin, heureActuelle: currentDateInMinute
   });
 
-  const currentTimeBeforeNextDeletionValue = calculateTimeBeforeNextDeletion({
+  const currentTimeBeforeNextDeletionValue: number | boolean = calculateTimeBeforeNextDeletion({
     initialList: MockInitialTeamMembers,
     heureDebut: MockHeureDebut, heureFin: MockHeureFin, heureActuelle: currentDateInMinute
   });
@@ -17,8 +17,7 @@ export const getCurrentMemberListMethod = (): { currentListMember: string[], cur
   return { currentListMember: currentListMemberValue, currentTimeBeforeNextDeletion: currentTimeBeforeNextDeletionValue };
 }
 
-export const getInitialMemberListMethod = (): string[] => {
-  console.log("Liste Actualisée : " + MockInitialTeamMembers);
+export const getInitialMemberListMethod = (): memberListType => {
   return MockInitialTeamMembers;
 }
 
@@ -38,20 +37,18 @@ const calculateNombreDeletionTheoric = ({ initialList, heureDebut, heureActuelle
   return finalNombreDeletionTheoric;
 }
 
-const deleteRandomMember = (currentList: string[]): string[] => {
+const deleteRandomMember = (currentList: memberListType): memberListType => {
   const randomKeyToDelete = Math.random() * currentList.length;
   currentList.splice(randomKeyToDelete, 1);
   return currentList;
 }
 
-const updateCurrentList = ({ initialList, currentList, heureDebut, heureFin, heureActuelle }: calculateNombreDeletionToDoType): string[] => {
+const updateCurrentList = ({ initialList, currentList, heureDebut, heureFin, heureActuelle }: calculateNombreDeletionToDoType): memberListType => {
   const nombreDeletionToDo = calculateNombreDeletionToDo({ initialList, currentList, heureDebut, heureFin, heureActuelle });
-  console.log("Liste Précédente : " + currentList);
   let currentListUpdated = currentList;
   for (let i = 0; i < nombreDeletionToDo; i++) {
     deleteRandomMember(currentListUpdated);
   }
-  console.log("Liste Actualisée : " + currentListUpdated);
   return currentListUpdated;
 }
 
