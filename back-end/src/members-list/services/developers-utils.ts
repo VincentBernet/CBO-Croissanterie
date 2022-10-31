@@ -1,19 +1,17 @@
 import { calculateNombreDeletionTheoricType } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockHeureDebut, MockHeureFin, MockCurrentDate, } from "./members-list-mock";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTime, MockEndingTime, MockCurrentDateInMinute, } from "./members-list-mock";
 
-export const getInfo = () : string => {
-    const currentDateInMinute: number = (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60);
-
+export const getInfo = (): string => {
     const nombreDeletionActuel = MockInitialTeamMembers.length - MockCurrentTeamMembers.length;
-    const timeDeletion = ((MockHeureFin - MockHeureDebut) / (MockInitialTeamMembers.length -1));
-    const nombreDeletionTheoric = calculateNombreDeletionTheoric({initialList: MockInitialTeamMembers, heureDebut: MockHeureDebut, heureActuelle: currentDateInMinute, timeDeletion: timeDeletion});
-    return ("NombreDelationToDo = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - " 
-    + "nombreDeletionActuel(" + nombreDeletionActuel + ")");
-} 
+    const timeDeletion = ((MockEndingTime - MockBeginingTime) / (MockInitialTeamMembers.length - 1));
+    const nombreDeletionTheoric = calculateNombreDeletionTheoric({ initialList: MockInitialTeamMembers, beginingTime: MockBeginingTime, currentTime: MockCurrentDateInMinute, timeDeletion: timeDeletion });
+    return ("NombreDelationToDo = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - "
+        + "nombreDeletionActuel(" + nombreDeletionActuel + ")");
+}
 
-  
-const calculateNombreDeletionTheoric = ({initialList, heureDebut, heureActuelle, timeDeletion}: calculateNombreDeletionTheoricType): number => {
-    const nombreDeletionTheoric = Math.floor(((heureActuelle - heureDebut) / timeDeletion));
+
+const calculateNombreDeletionTheoric = ({ initialList, beginingTime, currentTime, timeDeletion }: calculateNombreDeletionTheoricType): number => {
+    const nombreDeletionTheoric = Math.floor(((currentTime - beginingTime) / timeDeletion));
     const finalNombreDeletionTheoric = nombreDeletionTheoric > (initialList.length - 1) ? (initialList.length - 1) : nombreDeletionTheoric;
-    return finalNombreDeletionTheoric; 
-  }
+    return finalNombreDeletionTheoric;
+}
