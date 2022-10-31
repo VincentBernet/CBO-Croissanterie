@@ -9,8 +9,8 @@ interface memberListType extends Array<memberType> {
 interface dtoMembersListAPI {
     listMember: memberListType;
     timingBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
-    beginingTime: number;
-    endingTime: number;
+    beginingTime: { hours: number, minutes: number, seconds: number };
+    endingTime: { hours: number, minutes: number, seconds: number };
 }
 
 interface calculateNombreDeletionToDoType {

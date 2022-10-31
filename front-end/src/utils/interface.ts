@@ -7,9 +7,12 @@ interface memberListType extends Array<memberType> {
 }
 
 interface dtoMembersListAPI {
-    currentTimeBeforeNextDeletion: string;
-    currentListMember: memberListType;
+    listMember: memberListType;
+    timingBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
+    beginingTime: { hours: number, minutes: number, seconds: number };
+    endingTime: { hours: number, minutes: number, seconds: number };
 }
+
 
 export type { memberType, memberListType, dtoMembersListAPI, }
 

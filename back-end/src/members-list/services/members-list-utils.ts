@@ -14,7 +14,10 @@ export const getCurrentMemberListMethod = (): dtoMembersListAPI => {
       beginingTime: MockBeginingTime, endingTime: MockEndingTime, currentTime: MockCurrentDateInMinute
     });
 
-  return { listMember: currentListMemberValue, timingBeforeNextDeletion: currentTimeBeforeNextDeletionValue, beginingTime: MockBeginingTime, endingTime: MockEndingTime };
+  return {
+    listMember: currentListMemberValue, timingBeforeNextDeletion: currentTimeBeforeNextDeletionValue,
+    beginingTime: parseMinuteToTimeFormat(MockBeginingTime), endingTime: parseMinuteToTimeFormat(MockEndingTime)
+  };
 }
 
 export const getInitialMemberListMethod = (): memberListType => {
@@ -52,13 +55,18 @@ const updateCurrentList = ({ initialList, currentList, beginingTime, endingTime,
   return currentListUpdated;
 }
 
+
+const parseMinuteToTimeFormat = (timeInMinute: number): { hours: number, minutes: number, seconds: number } => {
+  const hourTime = Math.floor(timeInMinute / 60);
+  const minutesTime = Math.floor(timeInMinute % 60);
+  const secondsTime = (timeInMinute - (hourTime * 60) - minutesTime) * 60;
+  return { hours: hourTime, minutes: minutesTime, seconds: secondsTime };
+}
+
 const calculateTimeBeforeNextDeletion = ({ initialList, beginingTime, endingTime, currentTime }: calculateTimeBeforeNextDeletionType): { hours: number, minutes: number, seconds: number } | boolean => {
   const timeDeletion = ((endingTime - beginingTime) / (initialList.length - 1));
   if (currentTime > endingTime) return false;
   if (currentTime < beginingTime) return true;
   const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentTime - beginingTime) % timeDeletion);
-  const hourTime = Math.floor(timeBeforeNextDeletionInMinutes / 60);
-  const minutesTime = Math.floor(timeBeforeNextDeletionInMinutes % 60);
-  const secondsTime = (timeBeforeNextDeletionInMinutes - (hourTime * 60) - minutesTime) * 60;
-  return ({ hours: hourTime, minutes: minutesTime, seconds: secondsTime });
+  return (parseMinuteToTimeFormat(timeBeforeNextDeletionInMinutes));
 }
