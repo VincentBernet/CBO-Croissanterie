@@ -1,15 +1,21 @@
 import React from 'react';
 
 interface TimerCardProp {
-  timer: string | boolean;
+  timerBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
+  beginingTimer: { hours: number, minutes: number, seconds: number };
+  endingTimer: { hours: number, minutes: number, seconds: number };
 }
 
-const TimerCard = ({ timer }: TimerCardProp) => {
+const TimerCard = ({ timerBeforeNextDeletion, beginingTimer, endingTimer }: TimerCardProp) => {
+  const messageJeuTerminé = "Le jeu est finis depuis " + endingTimer.hours + ":" + endingTimer.minutes +
+    " et recommenceras demain à " + beginingTimer.hours + ":" + beginingTimer.minutes;
+  const messageJeuRecommence = "Le jeu commence à " + beginingTimer.hours + ":" + beginingTimer.minutes;
   return (
     <div className="TimerCard">
-      {' '}
-      <span className="TimerText">{timer ? timer : "Le jeu est terminé : début demain à 8h00"}</span>
-      {' '}
+      <span className="TimerText">{(typeof timerBeforeNextDeletion === "boolean") ?
+        ((timerBeforeNextDeletion === true) ? (messageJeuRecommence) : (messageJeuTerminé)) :
+        (timerBeforeNextDeletion.hours + ":" + timerBeforeNextDeletion.minutes + ":" + timerBeforeNextDeletion.seconds)}
+      </span>
     </div>
   );
 }

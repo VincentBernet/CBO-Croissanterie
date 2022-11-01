@@ -5,6 +5,9 @@ const MockCurrentTeamMembers: memberListType = [{ name: 'Vincent' },
 
 const MockEmptyTeamMembers: memberListType = [{ name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' }, { name: '' },];
 
-const MockTimerTillNextDeletion = "00:00:00";
 
-export { MockCurrentTeamMembers, MockEmptyTeamMembers, MockTimerTillNextDeletion };
+const MockTimerTillNextDeletion: { hours: number, minutes: number, seconds: number } | boolean = { hours: 0, minutes: 0, seconds: 0 };
+const MockBeginingTime: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 };
+const MockEndingTime: { hours: number, minutes: number, seconds: number } = { hours: 0, minutes: 0, seconds: 0 };
+
+export { MockCurrentTeamMembers, MockEmptyTeamMembers, MockTimerTillNextDeletion, MockBeginingTime, MockEndingTime };
