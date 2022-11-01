@@ -8,3 +8,7 @@ Little fun project, for our agile team, to decide which person needs to prepare 
 
 Let's do it !
 
+Last front-end deployment : [![Netlify Status](https://api.netlify.com/api/v1/badges/2b37d2b0-68d3-4e88-9d49-1816e24c1467/deploy-status)](https://app.netlify.com/sites/croissanterie/deploys)
+
+
+
