@@ -1,22 +1,22 @@
-import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimeBeforeNextDeletionType, memberType, dtoMembersListAPI } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTime, MockEndingTime, MockCurrentDate, MockCurrentDateInMinute } from "./members-list-mock";
+import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI } from "./members-list-type";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDateInMinute } from "./members-list-mock";
 
 export const getCurrentMemberListMethod = (): dtoMembersListAPI => {
 
-  const currentListMemberValue: memberListType = updateCurrentList({
+  const currentMemberListValue: memberListType = updateCurrentList({
     initialList: MockInitialTeamMembers, currentList: MockCurrentTeamMembers,
-    beginingTime: MockBeginingTime, endingTime: MockEndingTime, currentTime: MockCurrentDateInMinute
+    beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: MockCurrentDateInMinute
   });
 
   const currentTimeBeforeNextDeletionValue: { hours: number, minutes: number, seconds: number } | boolean
     = calculateTimeBeforeNextDeletion({
       initialList: MockInitialTeamMembers,
-      beginingTime: MockBeginingTime, endingTime: MockEndingTime, currentTime: MockCurrentDateInMinute
+      beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTime: MockCurrentDateInMinute
     });
 
   return {
-    listMember: currentListMemberValue, timingBeforeNextDeletion: currentTimeBeforeNextDeletionValue,
-    beginingTime: parseMinuteToTimeFormat(MockBeginingTime), endingTime: parseMinuteToTimeFormat(MockEndingTime)
+    memberList: currentMemberListValue, timerBeforeNextDeletion: currentTimeBeforeNextDeletionValue,
+    beginingTimer: parseMinuteToTimeFormat(MockBeginingTimer), endingTimer: parseMinuteToTimeFormat(MockEndingTimer)
   };
 }
 
@@ -24,18 +24,18 @@ export const getInitialMemberListMethod = (): memberListType => {
   return MockInitialTeamMembers;
 }
 
-const calculateNombreDeletionToDo = ({ initialList, currentList, beginingTime, endingTime, currentTime }: calculateNombreDeletionToDoType): number => {
+const calculateNombreDeletionToDo = ({ initialList, currentList, beginingTimer, endingTimer, currentTimer }: calculateNombreDeletionToDoType): number => {
   const nombreDeletionActuel = initialList.length - currentList.length;
-  const timeDeletion = ((endingTime - beginingTime) / (initialList.length - 1));
-  const nombreDeletionTheoric = calculateNombreDeletionTheoric({ initialList, beginingTime, currentTime, timeDeletion });
+  const timeDeletion = ((endingTimer - beginingTimer) / (initialList.length - 1));
+  const nombreDeletionTheoric = calculateNombreDeletionTheoric({ initialList, beginingTimer, currentTimer, timeDeletion });
   console.log("---------------------------------------------------------")
   console.log("NombreDelationToDo = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - "
     + "nombreDeletionActuel(" + nombreDeletionActuel + ")");
   return nombreDeletionTheoric - nombreDeletionActuel;
 }
 
-const calculateNombreDeletionTheoric = ({ initialList, beginingTime, currentTime, timeDeletion }: calculateNombreDeletionTheoricType): number => {
-  const nombreDeletionTheoric = Math.floor(((currentTime - beginingTime) / timeDeletion));
+const calculateNombreDeletionTheoric = ({ initialList, beginingTimer, currentTimer, timeDeletion }: calculateNombreDeletionTheoricType): number => {
+  const nombreDeletionTheoric = Math.floor(((currentTimer - beginingTimer) / timeDeletion));
   const finalNombreDeletionTheoric = nombreDeletionTheoric > (initialList.length - 1) ? (initialList.length - 1) : nombreDeletionTheoric;
   return finalNombreDeletionTheoric;
 }
@@ -46,8 +46,8 @@ const deleteRandomMember = (currentList: memberListType): memberListType => {
   return currentList;
 }
 
-const updateCurrentList = ({ initialList, currentList, beginingTime, endingTime, currentTime }: calculateNombreDeletionToDoType): memberListType => {
-  const nombreDeletionToDo = calculateNombreDeletionToDo({ initialList, currentList, beginingTime, endingTime, currentTime });
+const updateCurrentList = ({ initialList, currentList, beginingTimer, endingTimer, currentTimer }: calculateNombreDeletionToDoType): memberListType => {
+  const nombreDeletionToDo = calculateNombreDeletionToDo({ initialList, currentList, beginingTimer, endingTimer, currentTimer });
   let currentListUpdated = currentList;
   for (let i = 0; i < nombreDeletionToDo; i++) {
     deleteRandomMember(currentListUpdated);
@@ -63,10 +63,10 @@ const parseMinuteToTimeFormat = (timeInMinute: number): { hours: number, minutes
   return { hours: hourTime, minutes: minutesTime, seconds: secondsTime };
 }
 
-const calculateTimeBeforeNextDeletion = ({ initialList, beginingTime, endingTime, currentTime }: calculateTimeBeforeNextDeletionType): { hours: number, minutes: number, seconds: number } | boolean => {
-  const timeDeletion = ((endingTime - beginingTime) / (initialList.length - 1));
-  if (currentTime > endingTime) return false;
-  if (currentTime < beginingTime) return true;
-  const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentTime - beginingTime) % timeDeletion);
+const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): { hours: number, minutes: number, seconds: number } | boolean => {
+  const timeDeletion = ((endingTimer - beginingTimer) / (initialList.length - 1));
+  if (currentTime > endingTimer) return false;
+  if (currentTime < beginingTimer) return true;
+  const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentTime - beginingTimer) % timeDeletion);
   return (parseMinuteToTimeFormat(timeBeforeNextDeletionInMinutes));
 }

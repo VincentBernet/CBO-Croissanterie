@@ -7,35 +7,35 @@ interface memberListType extends Array<memberType> {
 }
 
 interface dtoMembersListAPI {
-    listMember: memberListType;
-    timingBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
-    beginingTime: { hours: number, minutes: number, seconds: number };
-    endingTime: { hours: number, minutes: number, seconds: number };
+    memberList: memberListType;
+    timerBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
+    beginingTimer: { hours: number, minutes: number, seconds: number };
+    endingTimer: { hours: number, minutes: number, seconds: number };
 }
 
 interface calculateNombreDeletionToDoType {
     initialList: memberListType,
     currentList: memberListType,
-    currentTime: number,
-    beginingTime: number,
-    endingTime: number,
+    currentTimer: number,
+    beginingTimer: number,
+    endingTimer: number,
 }
 
-interface calculateTimeBeforeNextDeletionType {
+interface calculateTimerBeforeNextDeletionType {
     initialList: memberListType,
-    beginingTime: number,
-    endingTime: number,
+    beginingTimer: number,
+    endingTimer: number,
     currentTime: number,
 }
 
 interface calculateNombreDeletionTheoricType {
     initialList: memberListType,
     timeDeletion: number,
-    beginingTime: number,
-    currentTime: number,
+    beginingTimer: number,
+    currentTimer: number,
 }
 
 
 
 
-export { memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimeBeforeNextDeletionType, calculateNombreDeletionTheoricType }
+export { memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimerBeforeNextDeletionType, calculateNombreDeletionTheoricType }
