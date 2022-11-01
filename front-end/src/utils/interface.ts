@@ -3,8 +3,7 @@ interface memberType {
     age?: number;
 }
 
-interface memberListType extends Array<memberType> {
-}
+interface memberListType extends Array<memberType> { }
 
 interface dtoMembersListAPI {
     memberList: memberListType;
@@ -12,7 +11,6 @@ interface dtoMembersListAPI {
     beginingTimer: { hours: number, minutes: number, seconds: number };
     endingTimer: { hours: number, minutes: number, seconds: number };
 }
-
 
 export type { memberType, memberListType, dtoMembersListAPI, }
 

@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { retrieveApiCall } from '../utils/callApi.utils';
 import { dtoMembersListAPI } from '../utils/interface';
 import { MockEmptyTeamMembers, MockTimerTillNextDeletion, MockBeginingTime, MockEndingTime } from '../utils/mock';
-import './GlobalContainer.css';
 import MemberCard from './MemberCard';
 import TimerCard from './TimerCard';
+import loading from './../utils/image/loader.svg';
+import './GlobalContainer.css';
 
 const GlobalContainer = () => {
   const currentCroissanterInfoJSON: Promise<dtoMembersListAPI> = retrieveApiCall();
@@ -13,7 +14,6 @@ const GlobalContainer = () => {
       memberList: MockEmptyTeamMembers, timerBeforeNextDeletion: MockTimerTillNextDeletion,
       beginingTimer: MockBeginingTime, endingTimer: MockEndingTime
     });
-  const [dataError, setDataError] = useState(false);
   const [dataIsLoading, setDataIsLoading] = useState(true);
 
   if (dataIsLoading === true) {
@@ -27,31 +27,28 @@ const GlobalContainer = () => {
     });
   }
 
-
   if (dataIsLoading) {
-    return (<> Loading Time </>
-      /*<div className="MainCardContainer">
-        <TimerCard timer={""} />
-        <div className="MemberCardContainer">
-          {MockEmptyTeamMembers.map((memberInfo, index) => (<MemberCard memberInfo={memberInfo} key={`Squeleton number ${index}`} />))}
-        </div>
-      </div>*/
+    return (
+      <div className="LoaderContainer"> <img src={loading} /> </div>
     );
   }
 
   if (dataInformation) {
     return (
       <div className="MainCardContainer">
-        <TimerCard timerBeforeNextDeletion={dataInformation.timerBeforeNextDeletion} beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer} />
+        <TimerCard timerBeforeNextDeletion={dataInformation.timerBeforeNextDeletion}
+          beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer} />
         <div className="MemberCardContainer">
-          {dataInformation.memberList.map((memberInfo, index) => (<MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />))}
+          {dataInformation.memberList.map((memberInfo, index) => (
+            <MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />
+          ))}
         </div>
       </div>
     );
   }
 
   return (
-    <div>L&apos;erreur est la suivante : {dataError}</div>
+    <div>Erreur 404</div>
   );
 }
 

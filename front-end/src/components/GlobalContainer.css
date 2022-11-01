@@ -2,6 +2,11 @@ body {
     background-color: #424549;
 }
 
+.LoaderContainer {
+    text-align: center;
+    margin-top: 5%;
+}
+
 .MainCardContainer {
     position: absolute;
     width: 40%;
@@ -11,7 +16,6 @@ body {
     background: #1e2124;
     border-radius: 15px;
 }
-
 
 .TimerCard {
     margin-top: 16px;
