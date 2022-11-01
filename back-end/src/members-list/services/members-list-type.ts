@@ -6,11 +6,15 @@ interface memberType {
 interface memberListType extends Array<memberType> {
 }
 
+interface timerBeforeNextDeletion {
+    timerBeforeNextDeletion: { hours: string, minutes: string, seconds: string } | boolean;
+}
+
 interface dtoMembersListAPI {
     memberList: memberListType;
-    timerBeforeNextDeletion: { hours: number, minutes: number, seconds: number } | boolean;
-    beginingTimer: { hours: number, minutes: number, seconds: number };
-    endingTimer: { hours: number, minutes: number, seconds: number };
+    timerBeforeNextDeletion: { hours: string, minutes: string, seconds: string } | boolean;
+    beginingTimer: { hours: string, minutes: string, seconds: string };
+    endingTimer: { hours: string, minutes: string, seconds: string };
 }
 
 interface calculateNombreDeletionToDoType {

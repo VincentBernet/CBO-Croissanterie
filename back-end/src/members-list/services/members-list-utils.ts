@@ -8,7 +8,7 @@ export const getCurrentMemberListMethod = (): dtoMembersListAPI => {
     beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: MockCurrentDateInMinute
   });
 
-  const currentTimeBeforeNextDeletionValue: { hours: number, minutes: number, seconds: number } | boolean
+  const currentTimeBeforeNextDeletionValue: { hours: string, minutes: string, seconds: string } | boolean
     = calculateTimeBeforeNextDeletion({
       initialList: MockInitialTeamMembers,
       beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTime: MockCurrentDateInMinute
@@ -56,14 +56,20 @@ const updateCurrentList = ({ initialList, currentList, beginingTimer, endingTime
 }
 
 
-const parseMinuteToTimeFormat = (timeInMinute: number): { hours: number, minutes: number, seconds: number } => {
+const numberToDigitString = (number: number,): string => {
+  if (number < 10) { return "0" + number; }
+  return number.toString();
+}
+
+const parseMinuteToTimeFormat = (timeInMinute: number): { hours: string, minutes: string, seconds: string } => {
   const hourTime = Math.floor(timeInMinute / 60);
   const minutesTime = Math.floor(timeInMinute % 60);
   const secondsTime = Math.floor((timeInMinute - (hourTime * 60) - minutesTime) * 60);
-  return { hours: hourTime, minutes: minutesTime, seconds: secondsTime };
+
+  return { hours: numberToDigitString(hourTime), minutes: numberToDigitString(minutesTime), seconds: numberToDigitString(secondsTime) };
 }
 
-const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): { hours: number, minutes: number, seconds: number } | boolean => {
+const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): { hours: string, minutes: string, seconds: string } | boolean => {
   const timeDeletion = ((endingTimer - beginingTimer) / (initialList.length - 1));
   if (currentTime > endingTimer) return false;
   if (currentTime < beginingTimer) return true;
