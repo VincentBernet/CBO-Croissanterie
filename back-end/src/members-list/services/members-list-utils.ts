@@ -59,7 +59,7 @@ const updateCurrentList = ({ initialList, currentList, beginingTimer, endingTime
 const parseMinuteToTimeFormat = (timeInMinute: number): { hours: number, minutes: number, seconds: number } => {
   const hourTime = Math.floor(timeInMinute / 60);
   const minutesTime = Math.floor(timeInMinute % 60);
-  const secondsTime = (timeInMinute - (hourTime * 60) - minutesTime) * 60;
+  const secondsTime = Math.floor((timeInMinute - (hourTime * 60) - minutesTime) * 60);
   return { hours: hourTime, minutes: minutesTime, seconds: secondsTime };
 }
 
