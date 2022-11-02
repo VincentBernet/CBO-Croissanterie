@@ -22,6 +22,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
     const timerElement = document.getElementById("timer");
 
     setInterval(() => {
+      console.log("Temps restant : " + temps);
       let hours: number | string = Math.floor(temps / 3600);
       let minutes: number | string = Math.floor(temps / 60) % 60;
       let secondes: number | string = temps % 60;
