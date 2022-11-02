@@ -22,7 +22,6 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
     const timerElement = document.getElementById("timer");
 
     setInterval(() => {
-      console.log("Temps restant : " + temps);
       let hours: number | string = Math.floor(temps / 3600);
       let minutes: number | string = Math.floor(temps / 60) % 60;
       let secondes: number | string = temps % 60;
@@ -32,18 +31,19 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       secondes = secondes < 10 ? "0" + secondes : secondes
       if (timerElement) {
         timerElement.innerText = `${hours}:${minutes}:${secondes}`
+        console.log("Temps restant : " + temps);
       }
       temps = temps <= 0 ? 0 : temps - 1
     }, 1000)
   }
 
-  let initalTimer = "00:00:00";
+  let initialTimer = "00:00:00";
 
   if (typeof timerBeforeNextDeletionInSeconds !== "boolean") {
     let Hours = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds / 3600));
     let Minutes = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds / 60) % 60);
     let Seconds = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds % 60));
-    initalTimer = `${Hours}:${Minutes}:${Seconds}`;
+    initialTimer = `${Hours}:${Minutes}:${Seconds}`;
   }
 
 
@@ -56,7 +56,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
             ((timerBeforeNextDeletionInSeconds === true) ? (messageJeuRecommence) : (messageJeuTerminé))
             :
             <span id="timer">
-              {initalTimer}
+              {initialTimer}
             </span>
         }
       </span>
