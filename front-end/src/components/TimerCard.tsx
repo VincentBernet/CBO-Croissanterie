@@ -6,6 +6,10 @@ interface TimerCardProp {
   endingTimer: { hours: number, minutes: number, seconds: number };
 }
 
+const numberToDigitString = (number: number,): string => {
+  if (number < 10) { return "0" + number; }
+  return number.toString();
+}
 
 const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTimer }: TimerCardProp) => {
   const messageJeuTerminé = "Le jeu est finis depuis " + endingTimer.hours + ":" + endingTimer.minutes +
@@ -32,6 +36,17 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
     }, 1000)
   }
 
+  let initalTimer = "00:00:00";
+
+  if (typeof timerBeforeNextDeletionInSeconds !== "boolean") {
+    let Hours = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds / 3600));
+    let Minutes = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds / 60) % 60);
+    let Seconds = numberToDigitString(Math.floor(timerBeforeNextDeletionInSeconds % 60));
+    initalTimer = `${Hours}:${Minutes}:${Seconds}`;
+  }
+
+
+
   return (
     <div className="TimerCard">
       <span className="TimerText">
@@ -40,7 +55,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
             ((timerBeforeNextDeletionInSeconds === true) ? (messageJeuRecommence) : (messageJeuTerminé))
             :
             <span id="timer">
-              {timerBeforeNextDeletionInSeconds}
+              {initalTimer}
             </span>
         }
       </span>
