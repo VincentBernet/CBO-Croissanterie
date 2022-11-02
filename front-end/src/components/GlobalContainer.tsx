@@ -36,7 +36,7 @@ const GlobalContainer = () => {
   if (dataInformation) {
     return (
       <div className="MainCardContainer">
-        <TimerCard timerBeforeNextDeletion={dataInformation.timerBeforeNextDeletion}
+        <TimerCard timerBeforeNextDeletionInSeconds={dataInformation.timerBeforeNextDeletion}
           beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer} />
         <div className="MemberCardContainer">
           {dataInformation.memberList.map((memberInfo, index) => (

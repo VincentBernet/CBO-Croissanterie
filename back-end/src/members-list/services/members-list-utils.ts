@@ -8,7 +8,7 @@ export const getCurrentMemberListMethod = (): dtoMembersListAPI => {
     beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: MockCurrentDateInMinute
   });
 
-  const currentTimeBeforeNextDeletionValue: { hours: string, minutes: string, seconds: string } | boolean
+  const currentTimeBeforeNextDeletionValue: number | boolean
     = calculateTimeBeforeNextDeletion({
       initialList: MockInitialTeamMembers,
       beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTime: MockCurrentDateInMinute
@@ -69,10 +69,10 @@ const parseMinuteToTimeFormat = (timeInMinute: number): { hours: string, minutes
   return { hours: numberToDigitString(hourTime), minutes: numberToDigitString(minutesTime), seconds: numberToDigitString(secondsTime) };
 }
 
-const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): { hours: string, minutes: string, seconds: string } | boolean => {
+const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): number | boolean => {
   const timeDeletion = ((endingTimer - beginingTimer) / (initialList.length - 1));
   if (currentTime > endingTimer) return false;
   if (currentTime < beginingTimer) return true;
   const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentTime - beginingTimer) % timeDeletion);
-  return (parseMinuteToTimeFormat(timeBeforeNextDeletionInMinutes));
+  return (Math.floor(timeBeforeNextDeletionInMinutes * 60));
 }

@@ -12,7 +12,7 @@ interface timerBeforeNextDeletion {
 
 interface dtoMembersListAPI {
     memberList: memberListType;
-    timerBeforeNextDeletion: { hours: string, minutes: string, seconds: string } | boolean;
+    timerBeforeNextDeletion: number | boolean;
     beginingTimer: { hours: string, minutes: string, seconds: string };
     endingTimer: { hours: string, minutes: string, seconds: string };
 }
