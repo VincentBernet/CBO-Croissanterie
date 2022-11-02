@@ -19,9 +19,8 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
   if (typeof timerBeforeNextDeletionInSeconds !== "boolean") {
     let temps: number = timerBeforeNextDeletionInSeconds;
 
-    const timerElement = document.getElementById("timer");
-
     setInterval(() => {
+      const timerElement = document.getElementById("timer");
       let hours: number | string = Math.floor(temps / 3600);
       let minutes: number | string = Math.floor(temps / 60) % 60;
       let secondes: number | string = temps % 60;
