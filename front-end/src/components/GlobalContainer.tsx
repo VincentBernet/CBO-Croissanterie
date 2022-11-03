@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { retrieveApiCall } from '../utils/callApi.utils';
+import { retrieveApiCall } from '../utils/callApi';
 import { dtoMembersListAPI } from '../utils/interface';
 import { MockEmptyTeamMembers, MockTimerTillNextDeletion, MockBeginingTime, MockEndingTime } from '../utils/mock';
 import MemberCard from './MemberCard';
