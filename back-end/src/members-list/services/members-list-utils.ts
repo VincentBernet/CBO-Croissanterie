@@ -1,4 +1,4 @@
-import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI } from "./members-list-type";
+import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI, timeFormat } from "./members-list-type";
 import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDateInMinute } from "./members-list-mock";
 
 export const getCurrentMemberListMethod = (): dtoMembersListAPI => {

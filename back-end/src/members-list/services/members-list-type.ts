@@ -1,10 +1,10 @@
+interface timeFormat {
+    hours: string, minutes: string, seconds: string
+}
+
 interface memberType {
     name: string;
     age?: number;
-}
-
-interface timeFormat {
-    hours: string, minutes: string, seconds: string
 }
 
 interface memberListType extends Array<memberType> { }
@@ -41,4 +41,4 @@ interface calculateNombreDeletionTheoricType {
 
 
 
-export { memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimerBeforeNextDeletionType, calculateNombreDeletionTheoricType }
+export { timeFormat, memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimerBeforeNextDeletionType, calculateNombreDeletionTheoricType }
