@@ -61,7 +61,7 @@ const numberToDigitString = (number: number,): string => {
   return number.toString();
 }
 
-const parseMinuteToTimeFormat = (timeInMinute: number): { hours: string, minutes: string, seconds: string } => {
+const parseMinuteToTimeFormat = (timeInMinute: number): timeFormat => {
   const hourTime = Math.floor(timeInMinute / 60);
   const minutesTime = Math.floor(timeInMinute % 60);
   const secondsTime = Math.floor((timeInMinute - (hourTime * 60) - minutesTime) * 60);

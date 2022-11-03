@@ -3,18 +3,17 @@ interface memberType {
     age?: number;
 }
 
-interface memberListType extends Array<memberType> {
+interface timeFormat {
+    hours: string, minutes: string, seconds: string
 }
 
-interface timerBeforeNextDeletion {
-    timerBeforeNextDeletion: { hours: string, minutes: string, seconds: string } | boolean;
-}
+interface memberListType extends Array<memberType> { }
 
 interface dtoMembersListAPI {
     memberList: memberListType;
     timerBeforeNextDeletion: number | boolean;
-    beginingTimer: { hours: string, minutes: string, seconds: string };
-    endingTimer: { hours: string, minutes: string, seconds: string };
+    beginingTimer: timeFormat;
+    endingTimer: timeFormat;
 }
 
 interface calculateNombreDeletionToDoType {

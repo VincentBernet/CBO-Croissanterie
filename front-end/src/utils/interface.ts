@@ -3,14 +3,20 @@ interface memberType {
     age?: number;
 }
 
+interface timeFormat {
+    hours: number;
+    minutes: number;
+    seconds: number;
+}
+
 interface memberListType extends Array<memberType> { }
 
 interface dtoMembersListAPI {
     memberList: memberListType;
     timerBeforeNextDeletion: number | boolean;
-    beginingTimer: { hours: number, minutes: number, seconds: number };
-    endingTimer: { hours: number, minutes: number, seconds: number };
+    beginingTimer: timeFormat;
+    endingTimer: timeFormat;
 }
 
-export type { memberType, memberListType, dtoMembersListAPI, }
+export type { memberType, memberListType, dtoMembersListAPI, timeFormat }
 
