@@ -30,8 +30,8 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
 
       /*hours = hours < 10 ? "0" + hours : hours;
       minutes = minutes < 10 ? "0" + minutes : minutes;
-      secondes = secondes < 10 ? "0" + secondes : secondes;*/
-      //console.log("Nombre seconde : " + secondes + " Nombre minute : " + minutes + " Nombre heure : " + hours);
+      secondes = secondes < 10 ? "0" + secondes : secondes;* /
+      console.log("Nombre seconde : " + secondes + " Nombre minute : " + minutes + " Nombre heure : " + hours);
 
       if (timerElement) {
         timerElement.innerText = `${hours}:${minutes}:${secondes}`;
@@ -39,7 +39,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       temps = temps <= 0 ? 0 : temps - 1;
       if (temps = 0) {
         retrieveApiCall().then((data) => { console.log("Dring dring calling api") });
-      }
+      }*/
     }, 1000);
   }
 
