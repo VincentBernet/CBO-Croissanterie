@@ -9,7 +9,7 @@ export const getInfo = (): string => {
         initialList: MockInitialTeamMembers,
         beginingTimer: MockBeginingTimer, currentTimer: convertToMinute(MockCurrentDate), timeDeletion: timeDeletion
     });
-    return ("NombreDelationToDo = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - "
+    return ("NombreDelationToDo  = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - "
         + "nombreDeletionActuel(" + nombreDeletionActuel + ")");
 }
 
