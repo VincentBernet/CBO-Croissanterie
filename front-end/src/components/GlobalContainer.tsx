@@ -17,7 +17,9 @@ const GlobalContainer = () => {
   const [dataIsLoading, setDataIsLoading] = useState(true);
 
   const callAgainAPI = () => {
-    setDataIsLoading(true);
+    if (dataIsLoading !== true) {
+      setDataIsLoading(true);
+    }
   }
 
   if (dataIsLoading === true) {
