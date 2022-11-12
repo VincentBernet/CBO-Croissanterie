@@ -28,10 +28,10 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       let secondes: number | string = temps % 60;
       console.log("Nombre seconde : " + secondes + " Nombre minute : " + minutes + " Nombre heure : " + hours);
 
-      hours = hours < 10 ? "0" + hours : hours;
+      /*hours = hours < 10 ? "0" + hours : hours;
       minutes = minutes < 10 ? "0" + minutes : minutes;
-      secondes = secondes < 10 ? "0" + secondes : secondes;
-      console.log("Nombre seconde : " + secondes + " Nombre minute : " + minutes + " Nombre heure : " + hours);
+      secondes = secondes < 10 ? "0" + secondes : secondes;*/
+      //console.log("Nombre seconde : " + secondes + " Nombre minute : " + minutes + " Nombre heure : " + hours);
 
       if (timerElement) {
         timerElement.innerText = `${hours}:${minutes}:${secondes}`;
