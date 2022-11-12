@@ -7,7 +7,7 @@ export const retrieveApiCall = async (): Promise<dtoMembersListAPI> => {
     const currentDateApiCallInMinute: number = (currentDateApiCall.getHours() * 60) + currentDateApiCall.getMinutes() + (currentDateApiCall.getSeconds() / 60);
     console.log("currentDateApiCallInMinute = " + currentDateApiCallInMinute);
     try {
-        const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/${currentDateApiCallInMinute}`;
+        const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/current-list/${currentDateApiCallInMinute}`;
         await fetch(endpointUrl).then((response) => response
             .json()
             .then((data) => ({
