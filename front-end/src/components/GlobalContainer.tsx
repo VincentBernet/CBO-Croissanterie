@@ -23,7 +23,7 @@ const GlobalContainer = () => {
         memberList: data.memberList, timerBeforeNextDeletion: data.timerBeforeNextDeletion,
         beginingTimer: data.beginingTimer, endingTimer: data.endingTimer
       });
-      console.log("Appel api : " + data.timerBeforeNextDeletion);
+      console.log("Reçus le nombre de minute suivant suite à l'appel de l'API : " + data.timerBeforeNextDeletion);
     });
   }
 
