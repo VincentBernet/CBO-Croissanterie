@@ -16,6 +16,10 @@ const GlobalContainer = () => {
     });
   const [dataIsLoading, setDataIsLoading] = useState(true);
 
+  const callAgainAPI = () => {
+    setDataIsLoading(true);
+  }
+
   if (dataIsLoading === true) {
     currentCroissanterInfoJSON.then((data) => {
       setDataIsLoading(false);
@@ -37,7 +41,8 @@ const GlobalContainer = () => {
     return (
       <div className="MainCardContainer">
         <TimerCard timerBeforeNextDeletionInSeconds={dataInformation.timerBeforeNextDeletion}
-          beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer} />
+          beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer}
+          setDataIsLoading={callAgainAPI} />
         <div className="MemberCardContainer">
           {dataInformation.memberList.map((memberInfo, index) => (
             <MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />

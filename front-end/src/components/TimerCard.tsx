@@ -7,9 +7,10 @@ interface TimerCardProp {
   timerBeforeNextDeletionInSeconds: number | boolean;
   beginingTimer: timeFormat;
   endingTimer: timeFormat;
+  setDataIsLoading: () => void;
 }
 
-const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTimer }: TimerCardProp) => {
+const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTimer, setDataIsLoading }: TimerCardProp) => {
   const gameIsStillRunning = (typeof timerBeforeNextDeletionInSeconds !== "boolean");
   const gameHasNotYetStarted: boolean = timerBeforeNextDeletionInSeconds === false;
 
@@ -36,6 +37,9 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       }
 
       temps = temps <= 0 ? 0 : temps - 1;
+      if (temps === 0) {
+        setDataIsLoading();
+      }
     }, 1000);
   }
 
