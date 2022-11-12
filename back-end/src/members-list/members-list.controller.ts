@@ -8,7 +8,7 @@ import { dtoMembersListAPI, memberListType } from './services/members-list-type'
 @Controller('members')
 export class MembersListController {
   @Get('current-list')
-  getCurrentMemberList(@Param('apiCallDate') apiCallDate: Date): dtoMembersListAPI {
+  getCurrentMemberList(@Param('apiCallDate') apiCallDate: number): dtoMembersListAPI {
     return getCurrentMemberListMethod(apiCallDate);
   }
 

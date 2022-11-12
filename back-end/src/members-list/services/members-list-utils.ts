@@ -1,18 +1,17 @@
 import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI, timeFormat } from "./members-list-type";
 import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, convertToMinute } from "./members-list-mock";
 
-export const getCurrentMemberListMethod = (apiCallDate: Date): dtoMembersListAPI => {
-  const currentCallTimeInMinute = convertToMinute(apiCallDate);
+export const getCurrentMemberListMethod = (apiCallDate: number): dtoMembersListAPI => {
 
   const currentMemberListValue: memberListType = updateCurrentList({
     initialList: MockInitialTeamMembers, currentList: MockCurrentTeamMembers,
-    beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: currentCallTimeInMinute
+    beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: apiCallDate
   });
 
   const currentTimeBeforeNextDeletionValue: number | boolean
     = calculateTimeBeforeNextDeletion({
       initialList: MockInitialTeamMembers,
-      beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentCallTime: currentCallTimeInMinute
+      beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentCallTime: apiCallDate
     });
 
   return {

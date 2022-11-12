@@ -4,8 +4,9 @@ import { dtoMembersListAPI } from "./interface";
 export const retrieveApiCall = async (): Promise<dtoMembersListAPI> => {
     let json: dtoMembersListAPI = { timerBeforeNextDeletion: false, memberList: [{ name: "" }], beginingTimer: { hours: 8, minutes: 0, seconds: 0 }, endingTimer: { hours: 17, minutes: 0, seconds: 0 } };
     const currentDateApiCall: Date = new Date();
+    const currentDateApiCallInMinute: number = (currentDateApiCall.getHours() * 60) + currentDateApiCall.getMinutes() + (currentDateApiCall.getSeconds() / 60);
     try {
-        const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/current-list?apiCallDate=${currentDateApiCall}`;
+        const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/current-list?apiCallDate=${currentDateApiCallInMinute}`;
         await fetch(endpointUrl).then((response) => response
             .json()
             .then((data) => ({
