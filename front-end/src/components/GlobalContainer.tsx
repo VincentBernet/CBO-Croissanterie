@@ -16,7 +16,7 @@ const GlobalContainer = () => {
     });
   const [dataIsLoading, setDataIsLoading] = useState(true);
 
-  const callAgainAPI = () => {
+  const callAgainAPI = (dataIsLoading: boolean) => {
     if (dataIsLoading !== true) {
       setDataIsLoading(true);
     }
@@ -44,7 +44,7 @@ const GlobalContainer = () => {
       <div className="MainCardContainer">
         <TimerCard timerBeforeNextDeletionInSeconds={dataInformation.timerBeforeNextDeletion}
           beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer}
-          setDataIsLoading={callAgainAPI} />
+          dataIsLoading={dataIsLoading} setDataIsLoading={callAgainAPI} />
         <div className="MemberCardContainer">
           {dataInformation.memberList.map((memberInfo, index) => (
             <MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />
