@@ -19,6 +19,8 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
 
   if (gameIsStillRunning) {
     let temps: number = timerBeforeNextDeletionInSeconds;
+    console.log("Nombre de seconde : " + temps);
+
     setInterval(() => {
       const timerElement = document.getElementById("timer");
       let hours: number | string = Math.floor(temps / 3600);
