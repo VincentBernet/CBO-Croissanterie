@@ -41,14 +41,18 @@ const GlobalContainer = () => {
 
   if (dataInformation) {
     return (
-      <div className="MainCardContainer">
-        <TimerCard timerBeforeNextDeletionInSeconds={dataInformation.timerBeforeNextDeletion}
-          beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer}
-          dataIsLoading={dataIsLoading} setDataIsLoading={callAgainAPI} />
-        <div className="MemberCardContainer">
-          {dataInformation.memberList.map((memberInfo, index) => (
-            <MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />
-          ))}
+      <div className="GlobalContainer">
+        <div className="MainCardContainer">
+          <div className="TimerCardContainer">
+            <TimerCard timerBeforeNextDeletionInSeconds={dataInformation.timerBeforeNextDeletion}
+              beginingTimer={dataInformation.beginingTimer} endingTimer={dataInformation.endingTimer}
+              dataIsLoading={dataIsLoading} setDataIsLoading={callAgainAPI} />
+          </div>
+          <div className="MemberCardContainer">
+            {dataInformation.memberList.map((memberInfo, index) => (
+              <MemberCard memberInfo={memberInfo} key={`MemberCard of ${index}`} />
+            ))}
+          </div>
         </div>
       </div>
     );
