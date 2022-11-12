@@ -37,10 +37,6 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       }
 
       temps = temps <= 0 ? 0 : temps - 1;
-      /*
-      if (temps = 0) {
-        retrieveApiCall().then((data) => { console.log("Dring dring calling api") });
-      }*/
     }, 1000);
   }
 
