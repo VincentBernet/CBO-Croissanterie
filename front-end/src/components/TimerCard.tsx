@@ -39,9 +39,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
 
       temps = temps <= 0 ? 0 : temps - 1;
       if (temps === 0) {
-        if (dataIsLoading === false) {
-          setDataIsLoading(dataIsLoading);
-        }
+        location.reload();
       }
     }, 1000);
   }
