@@ -1,17 +1,18 @@
 import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI, timeFormat } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDateInMinute } from "./members-list-mock";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, convertToMinute } from "./members-list-mock";
 
-export const getCurrentMemberListMethod = (): dtoMembersListAPI => {
+export const getCurrentMemberListMethod = (apiCallDate: Date): dtoMembersListAPI => {
+  const currentCallTimeInMinute = convertToMinute(apiCallDate);
 
   const currentMemberListValue: memberListType = updateCurrentList({
     initialList: MockInitialTeamMembers, currentList: MockCurrentTeamMembers,
-    beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: MockCurrentDateInMinute
+    beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTimer: currentCallTimeInMinute
   });
 
   const currentTimeBeforeNextDeletionValue: number | boolean
     = calculateTimeBeforeNextDeletion({
       initialList: MockInitialTeamMembers,
-      beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentTime: MockCurrentDateInMinute
+      beginingTimer: MockBeginingTimer, endingTimer: MockEndingTimer, currentCallTime: currentCallTimeInMinute
     });
 
   return {
@@ -69,10 +70,10 @@ const parseMinuteToTimeFormat = (timeInMinute: number): timeFormat => {
   return { hours: numberToDigitString(hourTime), minutes: numberToDigitString(minutesTime), seconds: numberToDigitString(secondsTime) };
 }
 
-const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentTime }: calculateTimerBeforeNextDeletionType): number | boolean => {
+const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTimer, currentCallTime }: calculateTimerBeforeNextDeletionType): number | boolean => {
   const timeDeletion = ((endingTimer - beginingTimer) / (initialList.length - 1));
-  if (currentTime > endingTimer) return false;
-  if (currentTime < beginingTimer) return true;
-  const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentTime - beginingTimer) % timeDeletion);
+  if (currentCallTime > endingTimer) return false;
+  if (currentCallTime < beginingTimer) return true;
+  const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentCallTime - beginingTimer) % timeDeletion);
   return (Math.floor(timeBeforeNextDeletionInMinutes * 60));
 }

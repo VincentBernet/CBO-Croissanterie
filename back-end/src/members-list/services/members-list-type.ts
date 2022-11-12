@@ -28,7 +28,7 @@ interface calculateTimerBeforeNextDeletionType {
     initialList: memberListType,
     beginingTimer: number,
     endingTimer: number,
-    currentTime: number,
+    currentCallTime: number,
 }
 
 interface calculateNombreDeletionTheoricType {

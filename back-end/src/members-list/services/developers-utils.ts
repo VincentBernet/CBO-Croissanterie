@@ -1,12 +1,13 @@
 import { calculateNombreDeletionTheoricType } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDateInMinute, } from "./members-list-mock";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, convertToMinute } from "./members-list-mock";
 
 export const getInfo = (): string => {
+    const MockCurrentDate = new Date;
     const nombreDeletionActuel = MockInitialTeamMembers.length - MockCurrentTeamMembers.length;
     const timeDeletion = ((MockEndingTimer - MockBeginingTimer) / (MockInitialTeamMembers.length - 1));
     const nombreDeletionTheoric = calculateNombreDeletionTheoric({
         initialList: MockInitialTeamMembers,
-        beginingTimer: MockBeginingTimer, currentTimer: MockCurrentDateInMinute, timeDeletion: timeDeletion
+        beginingTimer: MockBeginingTimer, currentTimer: convertToMinute(MockCurrentDate), timeDeletion: timeDeletion
     });
     return ("NombreDelationToDo = " + (nombreDeletionTheoric - nombreDeletionActuel) + " ->  nombreDeletionTheoric(" + nombreDeletionTheoric + ") - "
         + "nombreDeletionActuel(" + nombreDeletionActuel + ")");

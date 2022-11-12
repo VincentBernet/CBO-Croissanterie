@@ -1,4 +1,5 @@
 import React from 'react';
+import { retrieveApiCall } from '../utils/callApi';
 import { timeFormat } from '../utils/interface';
 import { getInitialTimer } from '../utils/timer';
 
@@ -31,6 +32,9 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
         timerElement.innerText = `${hours}:${minutes}:${secondes}`;
       }
       temps = temps <= 0 ? 0 : temps - 1;
+      if (temps = 0) {
+        retrieveApiCall().then((data) => { console.log("Dring dring calling api") });
+      }
     }, 1000);
   }
 
