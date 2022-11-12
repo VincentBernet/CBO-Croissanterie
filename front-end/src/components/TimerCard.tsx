@@ -7,7 +7,7 @@ interface TimerCardProp {
   timerBeforeNextDeletionInSeconds: number | boolean;
   beginingTimer: timeFormat;
   endingTimer: timeFormat;
-  setDataIsLoading: () => void;
+  setDataIsLoading: (dataIsLoading: boolean) => void;
   dataIsLoading: boolean;
 }
 
@@ -40,7 +40,7 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
       temps = temps <= 0 ? 0 : temps - 1;
       if (temps === 0) {
         if (dataIsLoading === false) {
-          setDataIsLoading();
+          setDataIsLoading(dataIsLoading);
         }
       }
     }, 1000);
