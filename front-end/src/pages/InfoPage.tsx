@@ -27,7 +27,7 @@ const InfoPage = () => {
                 <h1>Information sur le jeu</h1>
                 <p>Heure de début : {dataInformation.beginingTime}</p>
                 <p>Heure de fin : {dataInformation.endingTime}</p>
-                <p>Liste des participants : {dataInformation.memberList.map(member => member.name)}</p>
+                <p>Liste des participants : {dataInformation.memberList.map(member => member.name + ", ")}</p>
             </div>
         );
     }
