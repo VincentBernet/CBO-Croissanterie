@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { retrieveApiCall } from '../utils/callApi';
+import { retrieveGameApiCall } from '../utils/callApi';
 import { dtoMembersListAPI } from '../utils/interface';
 import { MockEmptyTeamMembers, MockTimerTillNextDeletion, MockBeginingTime, MockEndingTime } from '../utils/mock';
-import MemberCard from './MemberCard';
-import TimerCard from './TimerCard';
+import MemberCard from '../components/MemberCard';
+import TimerCard from '../components/TimerCard';
 import loading from './../utils/image/loader.svg';
-import './GlobalContainer.css';
+import './HomePage.css';
 
-const GlobalContainer = () => {
-  const currentCroissanterInfoJSON: Promise<dtoMembersListAPI> = retrieveApiCall();
+const HomePage = () => {
+  const currentCroissanterInfoJSON: Promise<dtoMembersListAPI> = retrieveGameApiCall();
   const [dataInformation, setDataInformation] =
     useState({
       memberList: MockEmptyTeamMembers, timerBeforeNextDeletion: MockTimerTillNextDeletion,
@@ -63,4 +63,4 @@ const GlobalContainer = () => {
   );
 }
 
-export default GlobalContainer;
+export default HomePage;

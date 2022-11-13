@@ -13,9 +13,12 @@ export class MembersListController {
   }
 
   @Get('game-info')
-  getInitialMemberList(): string {
-    return ("PlayersList -> " + getInitialMemberListMethod().map(member => " " + member.name) + " | " +
-      "BeginingTimer -> " + getBeginingTimer() + " | " + "EndingTimer -> " + getEndingTimer());
-  }
+  getInitialMemberList(): { info: string } {
+    return ({
+      info: "PlayersList -> " + getInitialMemberListMethod().map(member => " " + member.name) + " | " +
+        "BeginingTimer -> " + getBeginingTimer() + " | " + "EndingTimer -> " + getEndingTimer()
+    });
+  };
+}
 }
 

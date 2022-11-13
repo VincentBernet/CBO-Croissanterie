@@ -32,7 +32,7 @@ body {
     padding: 0.8rem;
     width: 60%;
     background: #FFFFFF;
-    border-radius: 45px;
+    border-radius: 3rem;
     text-align: center;
     animation: fadeIn 3s;
 }

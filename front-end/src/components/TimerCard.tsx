@@ -1,5 +1,5 @@
 import React from 'react';
-import { retrieveApiCall } from '../utils/callApi';
+import { retrieveGameApiCall } from '../utils/callApi';
 import { timeFormat } from '../utils/interface';
 import { getInitialTimer } from '../utils/timer';
 
