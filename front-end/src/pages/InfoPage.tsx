@@ -6,7 +6,7 @@ import loading from './../utils/image/loader.svg';
 const InfoPage = () => {
     const currentCroissanterInfoJSON: Promise<dtoGameInfoApi> = retrieveInfoApiCall();
     const [dataInformation, setDataInformation] =
-        useState({ memberList: {}, beginingTime: '', endingTime: '' });
+        useState({ memberList: [{ name: "Vincent" }], beginingTime: '', endingTime: '' });
     const [dataIsLoading, setDataIsLoading] = useState(true);
 
     if (dataIsLoading === true) {
@@ -27,7 +27,7 @@ const InfoPage = () => {
                 <h1>Information sur le jeu</h1>
                 <p>Heure de début : {dataInformation.beginingTime}</p>
                 <p>Heure de fin : {dataInformation.endingTime}</p>
-                <p>Liste des participants : {dataInformation.memberList}</p>
+                <p>Liste des participants : {dataInformation.memberList.map(member => member.name)}</p>
             </div>
         );
     }
