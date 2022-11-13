@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { retrieveInfoApiCall } from '../utils/callApi';
 import { dtoGameInfoApi } from '../utils/interface';
 import loading from './../utils/image/loader.svg';
+import './global.css';
 
 const InfoPage = () => {
     const currentCroissanterInfoJSON: Promise<dtoGameInfoApi> = retrieveInfoApiCall();
@@ -23,11 +24,26 @@ const InfoPage = () => {
     }
     if (dataInformation) {
         return (
-            <div>
-                <h1>Information sur le jeu</h1>
-                <p>Heure de début : {dataInformation.beginingTime}</p>
-                <p>Heure de fin : {dataInformation.endingTime}</p>
-                <p>Liste des participants : {dataInformation.memberList.map(member => member.name + ", ")}</p>
+            <div className="GlobalContainer">
+                <div className="MainCardContainer">
+                    <div className="TimerCardContainer">
+                        <div className="TimerCard">
+                            Information sur le jeu
+                        </div>
+                    </div>
+                    <div className="MemberCardContainer">
+                        <div className="GenericCard">
+                            Heure de début : {dataInformation.beginingTime}
+                        </div>
+                        <div className="GenericCard">
+                            Heure de fin : {dataInformation.endingTime}
+                        </div>
+                        <div className="GenericCard">
+                            Liste des participants : <br />
+                            {dataInformation.memberList.map(member => member.name + ", ")}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

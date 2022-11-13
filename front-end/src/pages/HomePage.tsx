@@ -5,7 +5,7 @@ import { MockEmptyTeamMembers, MockTimerTillNextDeletion, MockBeginingTime, Mock
 import MemberCard from '../components/MemberCard';
 import TimerCard from '../components/TimerCard';
 import loading from './../utils/image/loader.svg';
-import './HomePage.css';
+import './global.css';
 
 const HomePage = () => {
   const currentCroissanterInfoJSON: Promise<dtoMembersListAPI> = retrieveGameApiCall();
