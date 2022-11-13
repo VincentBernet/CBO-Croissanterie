@@ -2,7 +2,7 @@
 
 import { Controller, Get, Param } from '@nestjs/common';
 import { getBeginingTimer, getCurrentMemberListMethod, getEndingTimer, getInitialMemberListMethod } from "./services/members-list-utils";
-import { dtoMembersListAPI, memberListType } from './services/members-list-type';
+import { dtoGameInfoApi, dtoMembersListAPI, memberListType } from './services/members-list-type';
 
 @Controller('members')
 export class MembersListController {
@@ -13,10 +13,11 @@ export class MembersListController {
   }
 
   @Get('game-info')
-  getInitialMemberList(): { info: string } {
+  getInitialMemberList(): dtoGameInfoApi {
     return ({
-      info: "PlayersList -> " + getInitialMemberListMethod().map(member => " " + member.name) + " | " +
-        "BeginingTimer -> " + getBeginingTimer() + " | " + "EndingTimer -> " + getEndingTimer()
+      memberList: getInitialMemberListMethod(),
+      beginingTime: getBeginingTimer(),
+      endingTime: getEndingTimer(),
     });
   };
 }

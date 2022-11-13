@@ -38,7 +38,10 @@ interface calculateNombreDeletionTheoricType {
     currentTimer: number,
 }
 
+interface dtoGameInfoApi {
+    memberList: memberListType,
+    beginingTime: string,
+    endingTime: string,
+}
 
-
-
-export { timeFormat, memberType, memberListType, dtoMembersListAPI, calculateNombreDeletionToDoType, calculateTimerBeforeNextDeletionType, calculateNombreDeletionTheoricType }
+export { timeFormat, memberType, memberListType, dtoMembersListAPI, dtoGameInfoApi, calculateNombreDeletionToDoType, calculateTimerBeforeNextDeletionType, calculateNombreDeletionTheoricType }

@@ -1,4 +1,4 @@
-import { dtoMembersListAPI } from "./interface";
+import { dtoGameInfoApi, dtoMembersListAPI } from "./interface";
 
 export const retrieveGameApiCall = async (): Promise<dtoMembersListAPI> => {
     let json: dtoMembersListAPI = { timerBeforeNextDeletion: false, memberList: [{ name: "" }], beginingTimer: { hours: 8, minutes: 0, seconds: 0 }, endingTimer: { hours: 17, minutes: 0, seconds: 0 } };
@@ -23,8 +23,12 @@ export const retrieveGameApiCall = async (): Promise<dtoMembersListAPI> => {
     return json;
 }
 
-export const retrieveInfoApiCall = async (): Promise<{ info: string }> => {
-    let json: { info: string } = { info: "Attente de la réponse du serveur" };
+export const retrieveInfoApiCall = async (): Promise<dtoGameInfoApi> => {
+    let json: dtoGameInfoApi = {
+        memberList: [],
+        beginingTime: "Error: Serveur is not available",
+        endingTime: "Error: Serveur is not available",
+    };
     try {
         const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/game-info`;
         await fetch(endpointUrl).then((response) => response
@@ -34,11 +38,11 @@ export const retrieveInfoApiCall = async (): Promise<{ info: string }> => {
                 status: response.status,
             }))
             .then((res) => {
-                json = res.data.info;
+                json = res.data;
             }));
     } catch (error) {
         console.log(`We got some error with the api call chef: ${error}`);
-        json = { info: `We got some error with the api call chef: ${error}` };
     }
+    console.log(json);
     return json;
 };

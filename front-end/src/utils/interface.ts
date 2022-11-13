@@ -18,5 +18,11 @@ interface dtoMembersListAPI {
     endingTimer: timeFormat;
 }
 
-export type { memberType, memberListType, dtoMembersListAPI, timeFormat }
+interface dtoGameInfoApi {
+    memberList: memberListType,
+    beginingTime: string,
+    endingTime: string,
+}
+
+export type { memberType, memberListType, dtoMembersListAPI, dtoGameInfoApi, timeFormat }
 
