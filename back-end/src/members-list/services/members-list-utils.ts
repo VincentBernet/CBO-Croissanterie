@@ -1,5 +1,5 @@
 import { memberListType, calculateNombreDeletionToDoType, calculateNombreDeletionTheoricType, calculateTimerBeforeNextDeletionType, memberType, dtoMembersListAPI, timeFormat } from "./members-list-type";
-import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, convertToMinute } from "./members-list-mock";
+import { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer } from "./members-list-mock";
 
 export const getCurrentMemberListMethod = (apiCallDate: number): dtoMembersListAPI => {
 
@@ -18,10 +18,6 @@ export const getCurrentMemberListMethod = (apiCallDate: number): dtoMembersListA
     memberList: currentMemberListValue, timerBeforeNextDeletion: currentTimeBeforeNextDeletionValue,
     beginingTimer: parseMinuteToTimeFormat(MockBeginingTimer), endingTimer: parseMinuteToTimeFormat(MockEndingTimer)
   };
-}
-
-export const getInitialMemberListMethod = (): memberListType => {
-  return MockInitialTeamMembers;
 }
 
 const calculateNombreDeletionToDo = ({ initialList, currentList, beginingTimer, endingTimer, currentTimer }: calculateNombreDeletionToDoType): number => {
@@ -75,4 +71,16 @@ const calculateTimeBeforeNextDeletion = ({ initialList, beginingTimer, endingTim
   if (currentCallTime < beginingTimer) return true;
   const timeBeforeNextDeletionInMinutes = (timeDeletion - (currentCallTime - beginingTimer) % timeDeletion);
   return (Math.floor(timeBeforeNextDeletionInMinutes * 60));
+}
+
+export const getInitialMemberListMethod = (): memberListType => {
+  return MockInitialTeamMembers;
+}
+
+export const getBeginingTimer = (): string => {
+  return parseMinuteToTimeFormat(MockBeginingTimer).hours + ":" + parseMinuteToTimeFormat(MockBeginingTimer).minutes + ":" + parseMinuteToTimeFormat(MockBeginingTimer).seconds;
+}
+
+export const getEndingTimer = (): string => {
+  return parseMinuteToTimeFormat(MockEndingTimer).hours + ":" + parseMinuteToTimeFormat(MockEndingTimer).minutes + ":" + parseMinuteToTimeFormat(MockEndingTimer).seconds;
 }
