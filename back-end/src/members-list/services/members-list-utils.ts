@@ -85,5 +85,5 @@ export const getEndingTimer = (): string => {
 }
 
 export const getTimingBetweenEachDeletion = (): string => {
-  return String((MockEndingTimer - MockBeginingTimer) / (MockInitialTeamMembers.length - 1));
+  return String(Math.floor((((MockEndingTimer - MockBeginingTimer) / (MockInitialTeamMembers.length - 1)) * 100) / 100));
 }
