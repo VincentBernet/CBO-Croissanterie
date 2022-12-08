@@ -51,7 +51,6 @@ const updateCurrentList = ({ initialList, currentList, beginingTimer, endingTime
   return currentListUpdated;
 }
 
-
 const numberToDigitString = (number: number,): string => {
   if (number < 10) { return "0" + number; }
   return number.toString();
@@ -83,4 +82,8 @@ export const getBeginingTimer = (): string => {
 
 export const getEndingTimer = (): string => {
   return parseMinuteToTimeFormat(MockEndingTimer).hours + ":" + parseMinuteToTimeFormat(MockEndingTimer).minutes + ":" + parseMinuteToTimeFormat(MockEndingTimer).seconds;
+}
+
+export const getTimingBetweenEachDeletion = (): string => {
+  return String((MockEndingTimer - MockBeginingTimer) / (MockInitialTeamMembers.length - 1));
 }

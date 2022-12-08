@@ -7,13 +7,13 @@ import './global.css';
 const InfoPage = () => {
     const currentCroissanterInfoJSON: Promise<dtoGameInfoApi> = retrieveInfoApiCall();
     const [dataInformation, setDataInformation] =
-        useState({ memberList: [{ name: "Vincent" }], beginingTime: '', endingTime: '' });
+        useState({ memberList: [{ name: "Vincent" }], beginingTime: '', endingTime: '', timeBetweenEachDeletion: '' });
     const [dataIsLoading, setDataIsLoading] = useState(true);
 
     if (dataIsLoading === true) {
         currentCroissanterInfoJSON.then((data) => {
             setDataIsLoading(false);
-            setDataInformation({ memberList: data.memberList, beginingTime: data.beginingTime, endingTime: data.endingTime });
+            setDataInformation({ memberList: data.memberList, beginingTime: data.beginingTime, endingTime: data.endingTime, timeBetweenEachDeletion: data.timeBetweenEachDeletion });
             console.log("Information sur le jeu : " + data);
         });
     }
@@ -37,6 +37,9 @@ const InfoPage = () => {
                         </div>
                         <div className="GenericCard">
                             Heure de fin : {dataInformation.endingTime}
+                        </div>
+                        <div className="GenericCard">
+                            Temps entre chaque suppression : {dataInformation.timeBetweenEachDeletion}
                         </div>
                         <div className="GenericCard">
                             Liste des participants : <br />

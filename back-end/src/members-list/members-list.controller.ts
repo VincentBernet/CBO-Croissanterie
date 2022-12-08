@@ -1,7 +1,7 @@
 // Se limiter seulement à la définition d'endpoint au niveau des controllers, et mettre la logique au niveau des services.
 
 import { Controller, Get, Param } from '@nestjs/common';
-import { getBeginingTimer, getCurrentMemberListMethod, getEndingTimer, getInitialMemberListMethod } from "./services/members-list-utils";
+import { getBeginingTimer, getCurrentMemberListMethod, getEndingTimer, getInitialMemberListMethod, getTimingBetweenEachDeletion } from "./services/members-list-utils";
 import { dtoGameInfoApi, dtoMembersListAPI, memberListType } from './services/members-list-type';
 
 @Controller('members')
@@ -18,6 +18,7 @@ export class MembersListController {
       memberList: getInitialMemberListMethod(),
       beginingTime: getBeginingTimer(),
       endingTime: getEndingTimer(),
+      timeBetweenEachDeletion: getTimingBetweenEachDeletion(),
     });
   };
 }

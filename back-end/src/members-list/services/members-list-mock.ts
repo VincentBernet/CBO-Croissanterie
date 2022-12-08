@@ -161,6 +161,7 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Claudia' },
+    { name: 'Cherif' },
 ];
 
 const MockCurrentTeamMembers: memberListType = [
@@ -175,6 +176,7 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Claudia' },
+    { name: 'Cherif' },
 ];
 
 const MockBeginingTimer: number = 10 * 60;

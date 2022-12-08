@@ -22,6 +22,7 @@ interface dtoGameInfoApi {
     memberList: memberListType,
     beginingTime: string,
     endingTime: string,
+    timeBetweenEachDeletion: string,
 }
 
 export type { memberType, memberListType, dtoMembersListAPI, dtoGameInfoApi, timeFormat }

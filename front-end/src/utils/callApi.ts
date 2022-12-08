@@ -28,6 +28,7 @@ export const retrieveInfoApiCall = async (): Promise<dtoGameInfoApi> => {
         memberList: [],
         beginingTime: "Error: Serveur is not available",
         endingTime: "Error: Serveur is not available",
+        timeBetweenEachDeletion: "Error: Serveur is not available",
     };
     try {
         const endpointUrl = `https://own-proxy-cors.herokuapp.com/https://croissanterie-backend.herokuapp.com/members/game-info`;
