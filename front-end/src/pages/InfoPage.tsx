@@ -39,7 +39,7 @@ const InfoPage = () => {
                             Heure de fin : {dataInformation.endingTime}
                         </div>
                         <div className="GenericCard">
-                            Temps entre chaque suppression : {dataInformation.timeBetweenEachDeletion}
+                            Temps entre chaque suppression : {dataInformation.timeBetweenEachDeletion} minutes
                         </div>
                         <div className="GenericCard">
                             Liste des participants : <br />
