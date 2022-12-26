@@ -180,7 +180,7 @@ const MockCurrentTeamMembers: memberListType = [
 ];
 
 const MockBeginingTimer: number = 10 * 60;
-const MockEndingTimer: number = 18 * 60;
+const MockEndingTimer: number = 17 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
 
