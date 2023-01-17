@@ -15,8 +15,8 @@ const TimerCard = ({ timerBeforeNextDeletionInSeconds, beginingTimer, endingTime
   const gameIsStillRunning = (typeof timerBeforeNextDeletionInSeconds !== "boolean");
   const gameHasNotYetStarted: boolean = timerBeforeNextDeletionInSeconds === false;
 
-  const messageJeuTerminé = "Le jeu est finis depuis " + endingTimer.hours + ":" + endingTimer.minutes +
-    " et recommenceras demain à " + beginingTimer.hours + ":" + beginingTimer.minutes;
+  const messageJeuTerminé = "Le jeu est fini depuis " + endingTimer.hours + ":" + endingTimer.minutes +
+    " et recommencera demain à " + beginingTimer.hours + ":" + beginingTimer.minutes;
   const messageJeuRecommence = "Le jeu commence à " + beginingTimer.hours + ":" + beginingTimer.minutes;
 
   if (gameIsStillRunning) {
