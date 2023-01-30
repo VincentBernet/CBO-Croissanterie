@@ -151,30 +151,30 @@ const LongMockCurrentTeamMembers: memberListType = [
 
 const MockInitialTeamMembers: memberListType = [
     { name: 'Vincent' },
-    { name: 'Kevin' },
+    //{ name: 'Kevin' },
     { name: 'Jean' },
     { name: 'Jean-Christophe' },
     { name: 'Hakima' },
     { name: 'Aya' },
-    { name: 'Virgil' },
+    //{ name: 'Virgil' },
     { name: 'Wendy' },
     { name: 'Oum' },
-    //{ name: 'Jeremy' },
+    { name: 'Jeremy' },
     { name: 'Claudia' },
     //{ name: 'Cherif' },
 ];
 
 const MockCurrentTeamMembers: memberListType = [
     { name: 'Vincent' },
-    { name: 'Kevin' },
+    //{ name: 'Kevin' },
     { name: 'Jean' },
     { name: 'Jean-Christophe' },
     { name: 'Hakima' },
     { name: 'Aya' },
-    { name: 'Virgil' },
+    //{ name: 'Virgil' },
     { name: 'Wendy' },
     { name: 'Oum' },
-    //{ name: 'Jeremy' },
+    { name: 'Jeremy' },
     { name: 'Claudia' },
     //{ name: 'Cherif' },
 ];
