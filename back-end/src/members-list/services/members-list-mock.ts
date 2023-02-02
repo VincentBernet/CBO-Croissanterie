@@ -150,7 +150,7 @@ const LongMockCurrentTeamMembers: memberListType = [
 ];
 
 const MockInitialTeamMembers: memberListType = [
-    { name: 'Vincent' },
+    //{ name: 'Vincent' },
     //{ name: 'Kevin' },
     { name: 'Jean' },
     { name: 'Jean-Christophe' },
@@ -165,7 +165,7 @@ const MockInitialTeamMembers: memberListType = [
 ];
 
 const MockCurrentTeamMembers: memberListType = [
-    { name: 'Vincent' },
+    //{ name: 'Vincent' },
     //{ name: 'Kevin' },
     { name: 'Jean' },
     { name: 'Jean-Christophe' },
@@ -179,8 +179,8 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Cherif' },
 ];
 
-const MockBeginingTimer: number = 14 * 60;
-const MockEndingTimer: number = 16 * 60;
+const MockBeginingTimer: number = 15.1 * 60;
+const MockEndingTimer: number = 17 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
 
