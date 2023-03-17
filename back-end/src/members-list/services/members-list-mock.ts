@@ -172,7 +172,7 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Hakima' },
     //{ name: 'Aya' },
     { name: 'Virgil' },
-    { name: 'Wendy' },
+    //{ name: 'Wendy' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Claudia' },
