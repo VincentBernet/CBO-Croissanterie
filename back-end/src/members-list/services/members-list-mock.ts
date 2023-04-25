@@ -150,33 +150,37 @@ const LongMockCurrentTeamMembers: memberListType = [
 ];
 
 const MockInitialTeamMembers: memberListType = [
-    //{ name: 'Vincent' },
+    { name: 'Vincent' },
     { name: 'Kevin' },
-    { name: 'Jean' },
     { name: 'Jean-Christophe' },
-    //{ name: 'Hakima' },
-    //{ name: 'Aya' },
-    { name: 'Virgil' },
-    { name: 'Wendy' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Claudia' },
     { name: 'Cherif' },
+    //{ name: 'Jean' },
+    //{ name: 'Islam' },
+    //{ name: 'Virgil' },
+    //{ name: 'Hakima' },
+    //{ name: 'Aya' },
+    //{ name: 'Stéphane' },
+    //{ name: 'Wendy' },
 ];
 
 const MockCurrentTeamMembers: memberListType = [
-    //{ name: 'Vincent' },
+    { name: 'Vincent' },
     { name: 'Kevin' },
-    { name: 'Jean' },
     { name: 'Jean-Christophe' },
-    //{ name: 'Hakima' },
-    //{ name: 'Aya' },
-    { name: 'Virgil' },
-    //{ name: 'Wendy' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Claudia' },
     { name: 'Cherif' },
+    //{ name: 'Jean' },
+    //{ name: 'Islam' },
+    //{ name: 'Virgil' },
+    //{ name: 'Hakima' },
+    //{ name: 'Aya' },
+    //{ name: 'Stéphane' },
+    //{ name: 'Wendy' },
 ];
 
 const MockBeginingTimer: number = 15 * 60;
