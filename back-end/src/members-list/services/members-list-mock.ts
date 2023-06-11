@@ -150,16 +150,14 @@ const LongMockCurrentTeamMembers: memberListType = [
 ];
 
 const MockInitialTeamMembers: memberListType = [
-    { name: 'Vincent' },
-    //{ name: 'Kevin' },
-    //{ name: 'Jean-Christophe' },
     //{ name: 'Oum' },
-    { name: 'Jeremy' },
+    //{ name: 'Kevin' },
     //{ name: 'Claudia' },
-    { name: 'Cherif' },
-    { name: 'Jean' },
-    { name: 'Islam' },
-    { name: 'Virgil' },
+    //{ name: 'Cherif' },
+
+    { name: 'Jean-Christophe' },
+    { name: 'Jeremy' },
+    { name: 'Vincent' },
     { name: 'Jean' },
     { name: 'Islam' },
     { name: 'Virgil' },
@@ -171,16 +169,14 @@ const MockInitialTeamMembers: memberListType = [
 ];
 
 const MockCurrentTeamMembers: memberListType = [
-    { name: 'Vincent' },
-    //{ name: 'Kevin' },
-    //{ name: 'Jean-Christophe' },
     //{ name: 'Oum' },
-    { name: 'Jeremy' },
+    //{ name: 'Kevin' },
     //{ name: 'Claudia' },
-    { name: 'Cherif' },
-    { name: 'Jean' },
-    { name: 'Islam' },
-    { name: 'Virgil' },
+    //{ name: 'Cherif' },
+
+    { name: 'Jean-Christophe' },
+    { name: 'Jeremy' },
+    { name: 'Vincent' },
     { name: 'Jean' },
     { name: 'Islam' },
     { name: 'Virgil' },
