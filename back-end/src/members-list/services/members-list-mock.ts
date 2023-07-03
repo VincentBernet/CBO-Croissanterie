@@ -150,11 +150,14 @@ const LongMockCurrentTeamMembers: memberListType = [
 ];
 
 const MockInitialTeamMembers: memberListType = [
-    //{ name: 'Oum' },
-    //{ name: 'Kevin' },
+    // Derniers membres à être passés
     //{ name: 'Claudia' },
     //{ name: 'Cherif' },
 
+    // Absent pour cette semaine
+    //{ name: 'Oum' },
+
+    { name: 'Kevin' },
     { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
     { name: 'Vincent' },
@@ -162,6 +165,7 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Virgil' },
 
+    // Plus dans l'équipe
     //{ name: 'Hakima' },
     //{ name: 'Aya' },
     //{ name: 'Stéphane' },
@@ -169,11 +173,14 @@ const MockInitialTeamMembers: memberListType = [
 ];
 
 const MockCurrentTeamMembers: memberListType = [
-    //{ name: 'Oum' },
-    //{ name: 'Kevin' },
+    // Derniers membres à être passés
     //{ name: 'Claudia' },
     //{ name: 'Cherif' },
 
+    // Absent pour cette semaine
+    //{ name: 'Oum' },
+
+    { name: 'Kevin' },
     { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
     { name: 'Vincent' },
@@ -181,6 +188,7 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Virgil' },
 
+    // Plus dans l'équipe
     //{ name: 'Hakima' },
     //{ name: 'Aya' },
     //{ name: 'Stéphane' },
