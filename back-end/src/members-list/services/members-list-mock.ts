@@ -195,7 +195,7 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Wendy' },
 ];
 
-const MockBeginingTimer: number = 11 * 60;
+const MockBeginingTimer: number = 13 * 60;
 const MockEndingTimer: number = 15 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
