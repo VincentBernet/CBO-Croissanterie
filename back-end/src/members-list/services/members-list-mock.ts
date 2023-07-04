@@ -156,13 +156,13 @@ const MockInitialTeamMembers: memberListType = [
 
     // Absent pour cette semaine
     //{ name: 'Oum' },
+    //{ name: 'Islam' },
 
     { name: 'Kevin' },
     { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
     { name: 'Vincent' },
     { name: 'Jean' },
-    { name: 'Islam' },
     { name: 'Virgil' },
 
     // Plus dans l'équipe
@@ -179,13 +179,13 @@ const MockCurrentTeamMembers: memberListType = [
 
     // Absent pour cette semaine
     //{ name: 'Oum' },
+    //{ name: 'Islam' },
 
     { name: 'Kevin' },
     { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
     { name: 'Vincent' },
     { name: 'Jean' },
-    { name: 'Islam' },
     { name: 'Virgil' },
 
     // Plus dans l'équipe
@@ -196,7 +196,7 @@ const MockCurrentTeamMembers: memberListType = [
 ];
 
 const MockBeginingTimer: number = 11 * 60;
-const MockEndingTimer: number = 16 * 60;
+const MockEndingTimer: number = 15 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
 
