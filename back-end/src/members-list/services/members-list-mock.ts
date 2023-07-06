@@ -151,19 +151,22 @@ const LongMockCurrentTeamMembers: memberListType = [
 
 const MockInitialTeamMembers: memberListType = [
     // Derniers membres à être passés
-    //{ name: 'Claudia' },
-    //{ name: 'Cherif' },
-
-    // Absent pour cette semaine
-    //{ name: 'Oum' },
+    //{ name: 'Vincent'},
     //{ name: 'Islam' },
 
+    // Absent pour cette semaine
+    //{ name: 'Virgil' },
+
+    // Immunité temporaire
+    //{ name: 'Jean-Christophe' },
+
     { name: 'Kevin' },
-    { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
-    { name: 'Vincent' },
     { name: 'Jean' },
-    { name: 'Virgil' },
+    { name: 'Claudia' },
+    { name: 'Cherif' },
+    { name: 'Oum' },
+    { name: 'Swan' },
 
     // Plus dans l'équipe
     //{ name: 'Hakima' },
@@ -174,19 +177,22 @@ const MockInitialTeamMembers: memberListType = [
 
 const MockCurrentTeamMembers: memberListType = [
     // Derniers membres à être passés
-    //{ name: 'Claudia' },
-    //{ name: 'Cherif' },
-
-    // Absent pour cette semaine
-    //{ name: 'Oum' },
+    //{ name: 'Vincent'},
     //{ name: 'Islam' },
 
+    // Absent pour cette semaine
+    //{ name: 'Virgil' },
+
+    // Immunité temporaire
+    //{ name: 'Jean-Christophe' },
+
     { name: 'Kevin' },
-    { name: 'Jean-Christophe' },
     { name: 'Jeremy' },
-    { name: 'Vincent' },
     { name: 'Jean' },
-    { name: 'Virgil' },
+    { name: 'Claudia' },
+    { name: 'Cherif' },
+    { name: 'Oum' },
+    { name: 'Swan' },
 
     // Plus dans l'équipe
     //{ name: 'Hakima' },
@@ -195,8 +201,8 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Wendy' },
 ];
 
-const MockBeginingTimer: number = 13 * 60;
-const MockEndingTimer: number = 15 * 60;
+const MockBeginingTimer: number = 17 * 60;
+const MockEndingTimer: number = 18 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
 
