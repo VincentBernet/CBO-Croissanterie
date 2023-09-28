@@ -151,22 +151,22 @@ const LongMockCurrentTeamMembers: memberListType = [
 
 const MockInitialTeamMembers: memberListType = [
     // Derniers membres à être passés
-    //{ name: 'Jean' },
-    //{ name: 'Islam' },
+    //{ name: 'Swan' },
 
     // Absent pour cette semaine
-    //{ name: 'Virgil' },
-    //{ name: 'Jean-Christophe' },
-    //{ name: 'Kevin' },
+    //{ name: 'Oum' },
+    //{ name: 'Jeremy' },
 
     // Immunité temporaire
+    //{ name: 'Jean' },
 
-    { name: 'Vincent'},
+    { name: 'Islam' },
+    { name: 'Virgil' },
+    { name: 'Jean-Christophe' },
+    { name: 'Kevin' },
+    { name: 'Vincent' },
     { name: 'Claudia' },
     { name: 'Cherif' },
-    { name: 'Oum' },
-    { name: 'Swan' },
-    { name: 'Jeremy' },
 
     // Plus dans l'équipe
     //{ name: 'Hakima' },
@@ -176,23 +176,23 @@ const MockInitialTeamMembers: memberListType = [
 ];
 
 const MockCurrentTeamMembers: memberListType = [
-   // Derniers membres à être passés
-    //{ name: 'Jean' },
-    //{ name: 'Islam' },
+    // Derniers membres à être passés
+    //{ name: 'Swan' },
 
     // Absent pour cette semaine
-    //{ name: 'Virgil' },
-    //{ name: 'Jean-Christophe' },
-    //{ name: 'Kevin' },
+    //{ name: 'Oum' },
+    //{ name: 'Jeremy' },
 
     // Immunité temporaire
+    //{ name: 'Jean' },
 
-    { name: 'Vincent'},
+    { name: 'Islam' },
+    { name: 'Virgil' },
+    { name: 'Jean-Christophe' },
+    { name: 'Kevin' },
+    { name: 'Vincent' },
     { name: 'Claudia' },
     { name: 'Cherif' },
-    { name: 'Oum' },
-    { name: 'Swan' },
-    { name: 'Jeremy' },
 
     // Plus dans l'équipe
     //{ name: 'Hakima' },
@@ -201,8 +201,8 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Wendy' },
 ];
 
-const MockBeginingTimer: number = 17 * 60;
-const MockEndingTimer: number = 18 * 60;
+const MockBeginingTimer: number = 9 * 60;
+const MockEndingTimer: number = 10 * 60;
 const MockCurrentDate: Date = new Date;
 const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
 
