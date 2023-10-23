@@ -1,5 +1,65 @@
 import { memberListType, } from "./members-list-type";
 
+const MockInitialTeamMembers: memberListType = [
+    { name: 'Islam' },
+    { name: 'Jean-Christophe' },
+    { name: 'Kevin' },
+    { name: 'Vincent' },
+    { name: 'Cherif' },
+    { name: 'Oum' },
+    { name: 'Jeremy' },
+    { name: 'Jean' },
+
+    // Derniers membres à être passés
+    //{ name: 'Claudia' },
+
+    // Absent pour cette semaine
+    //{ name: 'Virgil' },
+
+    // Immunité temporaire
+    //{ name: 'Soumaya'},
+
+    // Plus dans l'équipe
+    //{ name: 'Swan' },
+    //{ name: 'Hakima' },
+    //{ name: 'Aya' },
+    //{ name: 'Stéphane' },
+    //{ name: 'Wendy' },
+];
+
+const MockCurrentTeamMembers: memberListType = [
+    { name: 'Islam' },
+    { name: 'Jean-Christophe' },
+    { name: 'Kevin' },
+    { name: 'Vincent' },
+    { name: 'Cherif' },
+    { name: 'Oum' },
+    { name: 'Jeremy' },
+    { name: 'Jean' },
+
+    // Derniers membres à être passés
+    //{ name: 'Claudia' },
+
+    // Absent pour cette semaine
+    //{ name: 'Virgil' },
+
+    // Immunité temporaire
+    //{ name: 'Soumaya'},
+
+    // Plus dans l'équipe
+    //{ name: 'Swan' },
+    //{ name: 'Hakima' },
+    //{ name: 'Aya' },
+    //{ name: 'Stéphane' },
+    //{ name: 'Wendy' },
+];
+
+const MockBeginingTimer: number = 9 * 60;
+const MockEndingTimer: number = 10 * 60;
+const MockCurrentDate: Date = new Date;
+
+export { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDate }
+
 const LongMockInitialTeamMembers: memberListType = [
     { name: 'Vincent' },
     { name: 'Kevin' },
@@ -148,62 +208,3 @@ const LongMockCurrentTeamMembers: memberListType = [
     { name: 'Jeremy 5' },
     { name: 'Claudia 5' },
 ];
-
-const MockInitialTeamMembers: memberListType = [
-    // Derniers membres à être passés
-    //{ name: 'Swan' },
-
-    // Absent pour cette semaine
-    //{ name: 'Oum' },
-    //{ name: 'Jeremy' },
-
-    // Immunité temporaire
-    //{ name: 'Jean' },
-
-    { name: 'Islam' },
-    { name: 'Virgil' },
-    { name: 'Jean-Christophe' },
-    { name: 'Kevin' },
-    { name: 'Vincent' },
-    { name: 'Claudia' },
-    { name: 'Cherif' },
-
-    // Plus dans l'équipe
-    //{ name: 'Hakima' },
-    //{ name: 'Aya' },
-    //{ name: 'Stéphane' },
-    //{ name: 'Wendy' },
-];
-
-const MockCurrentTeamMembers: memberListType = [
-    // Derniers membres à être passés
-    //{ name: 'Swan' },
-
-    // Absent pour cette semaine
-    //{ name: 'Oum' },
-    //{ name: 'Jeremy' },
-
-    // Immunité temporaire
-    //{ name: 'Jean' },
-
-    { name: 'Islam' },
-    { name: 'Virgil' },
-    { name: 'Jean-Christophe' },
-    { name: 'Kevin' },
-    { name: 'Vincent' },
-    { name: 'Claudia' },
-    { name: 'Cherif' },
-
-    // Plus dans l'équipe
-    //{ name: 'Hakima' },
-    //{ name: 'Aya' },
-    //{ name: 'Stéphane' },
-    //{ name: 'Wendy' },
-];
-
-const MockBeginingTimer: number = 9 * 60;
-const MockEndingTimer: number = 10 * 60;
-const MockCurrentDate: Date = new Date;
-const convertToMinute = (date: Date): number => { return (MockCurrentDate.getHours() * 60) + MockCurrentDate.getMinutes() + (MockCurrentDate.getSeconds() / 60); }
-
-export { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDate, convertToMinute }
