@@ -5,7 +5,6 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Jean-Christophe' },
     { name: 'Kevin' },
     { name: 'Vincent' },
-    { name: 'Cherif' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Jean' },
@@ -18,6 +17,7 @@ const MockInitialTeamMembers: memberListType = [
 
     // Immunité temporaire
     //{ name: 'Soumaya'},
+    //{ name: 'Cherif' },
 
     // Plus dans l'équipe
     //{ name: 'Swan' },
@@ -32,7 +32,6 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Jean-Christophe' },
     { name: 'Kevin' },
     { name: 'Vincent' },
-    { name: 'Cherif' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Jean' },
@@ -45,6 +44,7 @@ const MockCurrentTeamMembers: memberListType = [
 
     // Immunité temporaire
     //{ name: 'Soumaya'},
+    //{ name: 'Cherif' },
 
     // Plus dans l'équipe
     //{ name: 'Swan' },
