@@ -3,55 +3,53 @@ import { memberListType, } from "./members-list-type";
 const MockInitialTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Kevin' },
-    { name: 'Vincent' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Virgil' },
     { name: 'Soumaya' },
-
+    { name: 'Jean-Christophe' },
+    { name: 'Claudia' },
+    { name: 'Swan' },
+    { name: 'Cherif' },
     // Derniers membres à être passés
-    //{ name: 'Jean-Christophe' },
-    //{ name: 'Claudia' },
 
     // Absent pour cette semaine
 
     // Immunité temporaire
-    //{ name: 'Jean' },
-    //{ name: 'Cherif' },
-
+    
     // Plus dans l'équipe
-    //{ name: 'Swan' },
+    //{ name: 'Vincent' },
     //{ name: 'Hakima' },
     //{ name: 'Aya' },
     //{ name: 'Stéphane' },
     //{ name: 'Wendy' },
+    //{ name: 'Jean' },
 ];
 
 const MockCurrentTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Kevin' },
-    { name: 'Vincent' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Virgil' },
     { name: 'Soumaya' },
-
+    { name: 'Jean-Christophe' },
+    { name: 'Claudia' },
+    { name: 'Swan' },
+    { name: 'Cherif' },
     // Derniers membres à être passés
-    //{ name: 'Jean-Christophe' },
-    //{ name: 'Claudia' },
 
     // Absent pour cette semaine
 
     // Immunité temporaire
-    //{ name: 'Jean' },
-    //{ name: 'Cherif' },
-
+    
     // Plus dans l'équipe
-    //{ name: 'Swan' },
+    //{ name: 'Vincent' },
     //{ name: 'Hakima' },
     //{ name: 'Aya' },
     //{ name: 'Stéphane' },
     //{ name: 'Wendy' },
+    //{ name: 'Jean' },
 ];
 
 const MockBeginingTimer: number = 15 * 60;
