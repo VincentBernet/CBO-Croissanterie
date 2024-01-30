@@ -7,7 +7,6 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Jeremy' },
     { name: 'Claudia' },
     { name: 'Swan' },
-   
     { name: 'Soumaya' },
     /* Derniers membres à être passés
     { name: 'Jean-Christophe' },
