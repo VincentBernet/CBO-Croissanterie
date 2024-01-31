@@ -34,18 +34,19 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Kevin' },
     { name: 'Oum' },
     { name: 'Jeremy' },
-    { name: 'Virgil' },
     { name: 'Soumaya' },
-    { name: 'Jean-Christophe' },
     { name: 'Claudia' },
     { name: 'Swan' },
-    { name: 'Cherif' },
-    // Derniers membres à être passés
+    /* Derniers membres à être passés
+    { name: 'Jean-Christophe' },
+    { name: 'Virgil' },
+    */
 
     // Absent pour cette semaine
-
-    // Immunité temporaire
     
+     /* Immunité temporaire
+    // Alternant
+     { name: 'Cherif' },
     // Plus dans l'équipe
     //{ name: 'Vincent' },
     //{ name: 'Hakima' },
@@ -53,6 +54,7 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Stéphane' },
     //{ name: 'Wendy' },
     //{ name: 'Jean' },
+    */
 ];
 
 const MockBeginingTimer: number = 15 * 60;
