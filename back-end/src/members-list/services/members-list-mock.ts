@@ -7,10 +7,10 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Jeremy' },
     { name: 'Claudia' },
     { name: 'Swan' },
-    { name: 'Soumaya' },
-    /* Derniers membres à être passés
-    { name: 'Jean-Christophe' },
     { name: 'Virgil' },
+    /* Derniers membres à être passés
+    { name: 'Soumaya' },
+    { name: 'Jean-Christophe' },
     */
 
     /* Absent pour cette semaine
@@ -34,12 +34,12 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Kevin' },
     { name: 'Oum' },
     { name: 'Jeremy' },
-    { name: 'Soumaya' },
+    { name: 'Virgil' },
     { name: 'Claudia' },
     { name: 'Swan' },
     /* Derniers membres à être passés
+    { name: 'Soumaya' },
     { name: 'Jean-Christophe' },
-    { name: 'Virgil' },
     */
 
     // Absent pour cette semaine
