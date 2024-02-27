@@ -5,12 +5,11 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Kevin' },
     { name: 'Oum' },
     { name: 'Jeremy' },
-    { name: 'Claudia' },
     { name: 'Swan' },
     { name: 'Virgil' },
     /* Derniers membres à être passés
     { name: 'Soumaya' },
-    { name: 'Jean-Christophe' },
+    
     */
 
     /* Absent pour cette semaine
@@ -26,6 +25,8 @@ const MockInitialTeamMembers: memberListType = [
     //{ name: 'Stéphane' },
     //{ name: 'Wendy' },
     //{ name: 'Jean' },
+    //{ name: 'Claudia' },
+    //{ name: 'Jean-Christophe' },
     */
 ];
 
@@ -35,11 +36,10 @@ const MockCurrentTeamMembers: memberListType = [
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Virgil' },
-    { name: 'Claudia' },
     { name: 'Swan' },
     /* Derniers membres à être passés
     { name: 'Soumaya' },
-    { name: 'Jean-Christophe' },
+
     */
 
     // Absent pour cette semaine
@@ -54,6 +54,8 @@ const MockCurrentTeamMembers: memberListType = [
     //{ name: 'Stéphane' },
     //{ name: 'Wendy' },
     //{ name: 'Jean' },
+    //{ name: 'Claudia' },
+    //{ name: 'Jean-Christophe' },
     */
 ];
 
