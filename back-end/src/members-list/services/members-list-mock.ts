@@ -2,7 +2,7 @@ import { memberListType, } from "./members-list-type";
 
 const MockInitialTeamMembers: memberListType = [
     { name: 'Islam' },
-    { name: 'Kevin' },
+    { name: 'Choix de JC' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Swan' },
@@ -32,7 +32,7 @@ const MockInitialTeamMembers: memberListType = [
 
 const MockCurrentTeamMembers: memberListType = [
     { name: 'Islam' },
-    { name: 'Kevin' },
+    { name: 'Choix de JC' },
     { name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Virgil' },
