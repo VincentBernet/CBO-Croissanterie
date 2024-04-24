@@ -3,7 +3,7 @@ import { memberListType, } from "./members-list-type";
 const MockInitialTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Choix de JC' },
-    { name: 'Oum' },
+    //{ name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Swan' },
     { name: 'Virgil' },
@@ -33,7 +33,7 @@ const MockInitialTeamMembers: memberListType = [
 const MockCurrentTeamMembers: memberListType = [
     { name: 'Islam' },
     { name: 'Choix de JC' },
-    { name: 'Oum' },
+    //{ name: 'Oum' },
     { name: 'Jeremy' },
     { name: 'Virgil' },
     { name: 'Swan' },
@@ -59,8 +59,8 @@ const MockCurrentTeamMembers: memberListType = [
     */
 ];
 
-const MockBeginingTimer: number = 15 * 60;
-const MockEndingTimer: number = 16 * 60;
+const MockBeginingTimer: number = 18 * 60;
+const MockEndingTimer: number = 19 * 60;
 const MockCurrentDate: Date = new Date;
 
 export { MockInitialTeamMembers, MockCurrentTeamMembers, MockBeginingTimer, MockEndingTimer, MockCurrentDate }
