@@ -1,7 +1,7 @@
 import { memberListType, } from "./members-list-type";
 
 const MockInitialTeamMembers: memberListType = [
-    { name: 'Islam' },
+    
     { name: 'Choix de JC' },
     { name: 'Oum' },
     { name: 'Jeremy' },
@@ -9,8 +9,9 @@ const MockInitialTeamMembers: memberListType = [
     { name: 'Soumaya' },
     { name: 'Swan' },
     { name: 'Kevin' },
+    { name: 'Cherif' },
     /* Derniers membres à être passés
-
+{ name: 'Islam' },
     */
 
     /* Absent pour cette semaine
@@ -18,7 +19,7 @@ const MockInitialTeamMembers: memberListType = [
     */
     /* Immunité temporaire
     // Alternant
-     { name: 'Cherif' },
+     
     // Plus dans l'équipe
     //{ name: 'Vincent' },
     //{ name: 'Hakima' },
